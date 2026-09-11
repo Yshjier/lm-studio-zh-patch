@@ -31,11 +31,11 @@
 taskkill /F /IM "LM Studio.exe"
 
 # 2. 部署字典补丁（UAC 提权自动复制 2 个文件）
-powershell -Command "Start-Process -FilePath 'C:\Users\Administrator\Desktop\workspace\LM Studio Chinese\patch\_deploy_dict2.bat' -Verb RunAs -Wait"
+powershell -Command "Start-Process -FilePath 'D:/Workspace/LM Studio Chinese\patch\_deploy_dict2.bat' -Verb RunAs -Wait"
 cat $env:TEMP\lmszh_dict2.log
 
 # 3. 注入文档汉化（替换 main_window.js 内 156 个 content 字符串体）
-powershell -Command "Start-Process -FilePath 'C:\Users\Administrator\Desktop\workspace\LM Studio Chinese\patch\_apply_docs.bat' -Verb RunAs -Wait"
+powershell -Command "Start-Process -FilePath 'D:/Workspace/LM Studio Chinese\patch\_apply_docs.bat' -Verb RunAs -Wait"
 cat $env:TEMP\lmszh_docs_apply.log
 
 # 4. 启动 LM Studio 验证
@@ -60,7 +60,7 @@ cat $env:TEMP\lmszh_docs_apply.log
 
 ```powershell
 # 1. 生成字典 JS（从 JSON 编译）
-cd "C:\Users\Administrator\Desktop\workspace\LM Studio Chinese\patch"
+cd "D:/Workspace/LM Studio Chinese\patch"
 python gen_dict_js.py
 
 # 2. 校验文档汉化结构（如确认新加的 doc 译文）
@@ -123,7 +123,7 @@ copy /Y "C:\Program Files\LM Studio\resources\app\.webpack\renderer\main_window.
         backups\main_window.predocs.bak
 
 # 2. 重新抽取英文文档
-cd "C:\Users\Administrator\Desktop\workspace\LM Studio Chinese\patch"
+cd "D:/Workspace/LM Studio Chinese\patch"
 python extract_docs.py    # 会从新版 main_window.js 抽出英文到 docs_src/（中转目录）
 
 # 3. 对比 docs_zh 缺哪些（通常 pageRelUrl 不会改，只是个别篇章新增）

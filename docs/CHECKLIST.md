@@ -187,7 +187,7 @@ print('backup:   ', md5(BAK))
 
 ```bash
 # 7.2 严格校验（开发端）— 三道独立校验
-cd "C:\Users\Administrator\Desktop\workspace\LM Studio Chinese\patch"
+cd "D:/Workspace/LM Studio Chinese\patch"
 python validate_docs.py           # 文档结构校验（围栏/链接/标题/图片/表格）
 python check_code_blocks.py       # 代码块逐字节一致校验
 python apply_docs_zh.py report    # 注入状态报告（应 already-zh=156）

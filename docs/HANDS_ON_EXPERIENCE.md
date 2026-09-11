@@ -359,7 +359,7 @@ Start-Process -FilePath "patch\_deploy_dict.bat" -Verb RunAs -Wait
 # → 提权后 cmd 的 cwd 变成 system32，bat 里的相对路径全失败
 
 # 正确：bat 内全用绝对路径
-set SRC=C:\Users\Administrator\Desktop\workspace\LM Studio Chinese\patch\zh_dict.js
+set SRC=D:/Workspace/LM Studio Chinese\patch\zh_dict.js
 set DST="C:\Program Files\LM Studio\resources\app\.webpack\renderer\zh_dict.js"
 ```
 

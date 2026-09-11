@@ -24,10 +24,10 @@ taskkill /F /IM "LM Studio.exe"
 
 ```powershell
 # 一键全量部署（推荐）：字典 + 补丁 + 原生菜单 + 156 篇中文文档
-powershell -Command "Start-Process -FilePath 'C:\Users\Administrator\AppData\Local\Programs\Python\Python312\python.exe' -ArgumentList '\"C:\Users\Administrator\Desktop\workspace\LM Studio Chinese\patch\_deploy_all.py\"' -Verb RunAs -Wait"
+powershell -Command "Start-Process -FilePath 'C:\Users\Administrator\AppData\Local\Programs\Python\Python312\python.exe' -ArgumentList '\"D:/Workspace/LM Studio Chinese\patch\_deploy_all.py\"' -Verb RunAs -Wait"
 
 # 查看部署日志
-type "C:\Users\Administrator\Desktop\workspace\LM Studio Chinese\logs\apply.log"
+type "D:/Workspace/LM Studio Chinese\logs\apply.log"
 ```
 
 会弹出 UAC 提窗，点击「是」即可。
@@ -40,10 +40,10 @@ type "C:\Users\Administrator\Desktop\workspace\LM Studio Chinese\logs\apply.log"
 
 ```powershell
 # 部署字典补丁（2 个文件复制）
-powershell -Command "Start-Process -FilePath 'C:\Users\Administrator\Desktop\workspace\LM Studio Chinese\patch\_deploy_dict2.bat' -Verb RunAs -Wait"
+powershell -Command "Start-Process -FilePath 'D:/Workspace/LM Studio Chinese\patch\_deploy_dict2.bat' -Verb RunAs -Wait"
 
 # 部署文档汉化（替换 main_window.js 中 156 个字符串）
-powershell -Command "Start-Process -FilePath 'C:\Users\Administrator\Desktop\workspace\LM Studio Chinese\patch\_apply_docs.bat' -Verb RunAs -Wait"
+powershell -Command "Start-Process -FilePath 'D:/Workspace/LM Studio Chinese\patch\_apply_docs.bat' -Verb RunAs -Wait"
 ```
 
 </details>
@@ -78,7 +78,7 @@ del "C:\Program Files\LM Studio\resources\app\.webpack\renderer\zh_dict.js"
 del "C:\Program Files\LM Studio\resources\app\.webpack\renderer\lms-zh-patch.js"
 
 # 3. 还原主文件（命令进入 patch/ 目录）
-cd "C:\Users\Administrator\Desktop\workspace\LM Studio Chinese\patch"
+cd "D:/Workspace/LM Studio Chinese\patch"
 python apply_docs_zh.py rollback
 ```
 
@@ -120,13 +120,13 @@ taskkill /F /IM "LM Studio.exe"
 
 # 2. 【重要】重建回滚基线 —— 旧基线与新版本不匹配，rollback 会装回错误版本
 copy /Y "C:\Program Files\LM Studio\resources\app\.webpack\renderer\main_window.js" `
-        "C:\Users\Administrator\Desktop\workspace\LM Studio Chinese\backups\main_window.predocs.bak"
+        "D:/Workspace/LM Studio Chinese\backups\main_window.predocs.bak"
 
 # 3. 一键全量部署（字典 + 补丁 + 原生菜单 + 156 篇文档）
-powershell -Command "Start-Process -FilePath 'C:\Users\Administrator\AppData\Local\Programs\Python\Python312\python.exe' -ArgumentList '\"C:\Users\Administrator\Desktop\workspace\LM Studio Chinese\patch\_deploy_all.py\"' -Verb RunAs -Wait"
+powershell -Command "Start-Process -FilePath 'C:\Users\Administrator\AppData\Local\Programs\Python\Python312\python.exe' -ArgumentList '\"D:/Workspace/LM Studio Chinese\patch\_deploy_all.py\"' -Verb RunAs -Wait"
 
 # 4. 确认日志末尾是 DEPLOY ALL DONE
-type "C:\Users\Administrator\Desktop\workspace\LM Studio Chinese\logs\apply.log" | Select-Object -Last 12
+type "D:/Workspace/LM Studio Chinese\logs\apply.log" | Select-Object -Last 12
 
 # 5. 启动 LM Studio 验证
 ```
@@ -138,7 +138,7 @@ type "C:\Users\Administrator\Desktop\workspace\LM Studio Chinese\logs\apply.log"
 ### 如果新版文档有变化（新增/改写了英文文档）
 
 ```powershell
-cd "C:\Users\Administrator\Desktop\workspace\LM Studio Chinese\patch"
+cd "D:/Workspace/LM Studio Chinese\patch"
 
 # 重新抽取新版英文文档（会重建 docs_src/）
 python extract_docs.py

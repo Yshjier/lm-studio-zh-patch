@@ -139,7 +139,7 @@ copy /Y "C:\Program Files\LM Studio\resources\app\.webpack\renderer\index.html" 
 #### 步骤 2：抽取新版本英文文档
 
 ```bash
-cd "C:\Users\Administrator\Desktop\workspace\LM Studio Chinese\patch"
+cd "D:/Workspace/LM Studio Chinese\patch"
 
 # 重新抽取（会覆写 docs_src/*.md）
 python extract_docs.py
@@ -376,7 +376,7 @@ if i>=0: print(repr(src[max(0,i-100):i+len(kw)+100]))
 #### 步骤 3：补字典并部署
 
 ```bash
-cd "C:\Users\Administrator\Desktop\workspace\LM Studio Chinese\patch"
+cd "D:/Workspace/LM Studio Chinese\patch"
 # 直接编辑 zh_dict.json 或写 add_dict_roundXX.py
 python gen_dict_js.py
 node --check zh_dict.js
