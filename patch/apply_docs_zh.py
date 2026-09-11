@@ -5,12 +5,12 @@ content:'...' 字符串（按 pageRelUrl 定位），原地替换，其它字节
 
 用法（需管理员权限，因为目标在 Program Files）:
     python apply_docs_zh.py            # 注入全部已有译文
-    python apply_docs_zh.py rollback   # 从 backups/main_window.predocs.bak 还原
+    python apply_docs_zh.py rollback   # 从 <renderer>/main_window.js.bak 还原
     python apply_docs_zh.py report     # 只报告当前哪些 doc 已是中文
 
 设计要点:
 - 幂等：按 pageRelUrl 定位，不依赖历史偏移；重复运行结果一致
-- 首次运行前自动备份到 backups/main_window.predocs.bak（已存在则跳过）
+- 首次运行前自动备份到 main_window.js.bak（与 bundle 同目录, 已存在则跳过）
 - 保留原引号风格（单引号/双引号），只重写引号之间的内容
 - 从后往前替换，避免偏移失效
 """
@@ -20,7 +20,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', write_through
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BUNDLE = os.environ.get('LMSZH_BUNDLE') or \
     r'C:\Program Files\LM Studio\resources\app\.webpack\renderer\main_window.js'
-BAK = os.environ.get('LMSZH_BAK') or os.path.join(ROOT, 'backups', 'main_window.predocs.bak')
+BAK = os.environ.get('LMSZH_BAK') or os.path.join(os.path.dirname(BUNDLE), 'main_window.js.bak')
 SRC = os.path.join(ROOT, 'patch', 'docs_src')
 ZH = os.path.join(ROOT, 'patch', 'docs_zh')
 LOG = os.path.join(ROOT, 'logs', 'apply_docs.log')

@@ -36,8 +36,8 @@ python patch/deploy.py             # 重新拷贝(幂等)
 - 官方大版本升级会还原 `index.html`/`main_window.js` → 重跑 `python patch/deploy.py` 即可恢复 B 部分;A 部分的模块 id 可能变化,需用 `analysis/` 下脚本重新解析后重跑 `gen_i18n_patch.py`。
 - 回滚(全部还原为官方原样):
   - `python patch/deploy.py rollback`(移除注入与补丁文件);
-  - 再用 `backups/` 中的 `main_window.js.bak` 覆盖还原(补 key 不可逆,备份保留原版)。
+  - 再用安装目录旁的 `<renderer>/main_window.js.bak` 覆盖还原(补 key 不可逆,备份保留原版)。
 
 ## 原始备份
 
-`backups/main_window.js.bak`、`backups/index.html.bak`(修改前 2026-09-09 11:07 备份)。
+`<renderer>/main_window.js.bak`、`<renderer>/index.html.bak`(与待修复文件同目录, 原地备份; 首次 install 自动从当前安装创建, 或从项目旧 backups/ 迁移)。

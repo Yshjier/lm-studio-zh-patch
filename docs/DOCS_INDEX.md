@@ -78,11 +78,10 @@ LM Studio Chinese/
 │   ├── scan_ctx_specs.py       ← 上下文规格扫描
 │   ├── menu_labels.txt         ← 菜单标签清单
 │
-├── 💾 backups/                 ← bundle 原始备份（4 个）
-│   ├── main_window.predocs.bak ← 文档汉化前（rollback 用，35MB）
-│   ├── main_index.js.bak       ← 主进程 bundle 原始备份（25MB）
-│   ├── index.html.bak          ← 注入前原版
-│   └── index.html.translate.bak ← 含翻译模块注入的 index.html（回滚用）
+├── 💾 backups/                 ← 旧版项目侧备份（仅首次 install 时迁移到原地 .bak 用，之后可删）
+│                                  真实"干净卸载/重装"用 .bak 已在安装目录:
+│                                    <renderer>/main_window.js.bak
+│                                    <renderer>/index.html.bak
 │
 └── 🧠 .workbuddy/memory/       ← 项目长期笔记
     ├── 2026-09-09.md           ← 第 1-29 轮日志

@@ -42,7 +42,7 @@ python lms_zh.py status      # 查看当前部署状态（不需管理员）
 | 4) 查看状态 | 报告补丁文件、注入状态、原生菜单、备份完整性 |
 
 **要点**：
-- 原始备份 `backups/main_window.predocs.bak` 与 `backups/index.html.bak` 是"干净卸载/重装"的唯一真相来源，首次 `install` 自动从当前安装创建。
+- 原始备份采用**原地备份**：`<renderer>/main_window.js.bak` 与 `<renderer>/index.html.bak` 与待修复文件同目录（`C:\Program Files\LM Studio\resources\app\.webpack\renderer\`），是"干净卸载/重装"的唯一真相来源，不依赖项目目录。首次 `install` 会从当前安装就地创建（或从项目旧 `backups/` 自动迁移）。
 - 适配新版 = 重跑 `install`（或菜单 3）；字典补丁为版本无关层，旧版字符串仍命中，仅新版新增文案需补字典。
 - 改了 `patch/zh_dict.json` 后先 `python patch/gen_dict_js.py` 重新编译，再 `python lms_zh.py install`。
 
@@ -56,8 +56,8 @@ python lms_zh.py uninstall      # 还原原始备份 + 删除补丁文件
 taskkill /F /IM "LM Studio.exe"
 del "C:\Program Files\LM Studio\resources\app\.webpack\renderer\zh_dict.js"
 del "C:\Program Files\LM Studio\resources\app\.webpack\renderer\lms-zh-patch.js"
-copy /Y "backups\main_window.predocs.bak" "C:\Program Files\LM Studio\resources\app\.webpack\renderer\main_window.js"
-copy /Y "backups\index.html.bak" "C:\Program Files\LM Studio\resources\app\.webpack\renderer\index.html"
+copy /Y "C:\Program Files\LM Studio\resources\app\.webpack\renderer\main_window.js.bak" "C:\Program Files\LM Studio\resources\app\.webpack\renderer\main_window.js"
+copy /Y "C:\Program Files\LM Studio\resources\app\.webpack\renderer\index.html.bak" "C:\Program Files\LM Studio\resources\app\.webpack\renderer\index.html"
 ```
 
 ## 兼容性
@@ -80,7 +80,7 @@ LM Studio 升级时通常保留 `lms-zh-patch.js` / `zh_dict.js` / `index.html` 
 ```powershell
 # 1. 备份新版本 bundle
 copy /Y "C:\Program Files\LM Studio\resources\app\.webpack\renderer\main_window.js" `
-        backups\main_window.predocs.bak
+        "C:\Program Files\LM Studio\resources\app\.webpack\renderer\main_window.js.bak"
 
 # 2. 重新抽取英文文档
 cd "D:/Workspace/LM Studio Chinese\patch"
@@ -132,7 +132,6 @@ LM Studio Chinese/
 │   ├── HANDS_ON_EXPERIENCE.md      # 汉化经验总结（架构决策、踩坑教训）
 │   ├── CHECKLIST.md                # 发布检查清单
 │   ├── DOCS_INDEX.md               # 文档索引
-│   └── LM_Studio汉化深度分析报告.md # 第 1 轮分析报告（项目原始需求）
 │
 ├── patch/                          # 补丁与部署脚本（产品核心）
 │   ├── zh_dict.json                # 字典源（4578 条）
@@ -160,14 +159,11 @@ LM Studio Chinese/
 │   ├── extract_en_i18n.py          # 提取英文 i18n 块（升级后增量补齐）
 │   └── scan_missing.py            # 全量 UI 英文扫描（P1/P2/P3/i18n 分级）
 │
-├── backups/                        # bundle 原始备份（gitignore，不入库）
-│   ├── main_window.predocs.bak     # 文档汉化前的主 bundle（rollback 用）
-│   ├── main_index.js.bak           # 主进程 bundle 原始备份
-│   ├── index.html.bak              # 注入前的 index.html
-│   └── index.html.translate.bak    # 含翻译模块注入的 index.html（回滚用）
-│
-├── logs/                           # 部署日志（gitignore，不入库）
-│   └── apply.log / deploy.log      # 部署日志
+├── backups/                        # 旧版项目侧备份（gitignore，不入库）
+│                                  # 真实"干净卸载/重装"用 .bak 已迁移到安装目录原地:
+│                                  #   <renderer>/main_window.js.bak
+│                                  #   <renderer>/index.html.bak
+│                                  # 首次 install 会把这里的内容拷过去, 之后可删
 │
 └── .workbuddy/memory/              # 项目长期笔记（gitignore，不入库）
     └── MEMORY.md                   # 关键经验与决策

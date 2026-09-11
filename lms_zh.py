@@ -14,9 +14,9 @@ LM Studio 中文汉化 — 单文件管理工具 (stdlib only, 无需 venv)
 需要写入 C:\\Program Files 的操作会自动请求 UAC 提权。
 
 设计要点:
-- 原始锚点: backups/main_window.predocs.bak (未打任何补丁的原始 bundle)
-            backups/index.html.bak          (未注入的原始入口)
-  这两个备份是"干净卸载 / 重装"的唯一真相来源。
+- 原始锚点(原地备份): <renderer>/main_window.js.bak (未打任何补丁的原始 bundle)
+                      <renderer>/index.html.bak    (未注入的原始入口)
+  这两个 .bak 与安装文件同目录, 是"干净卸载 / 重装"的唯一真相来源, 不依赖项目目录。
 - install 永远从原始备份还原后再打补丁, 因此幂等且不怕半途失败。
 - 适配新版(update): LM Studio 升级会覆盖 main_window.js/index.html, 此时安装目录里的
   文件就是"新版本原始", 探测到未打补丁且与旧备份不同 → 刷新备份 → 重新部署。
@@ -34,9 +34,17 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 RENDERER = None  # 运行时探测
 ZH_JS = os.path.join(ROOT, "patch", "zh_dict.js")
 PATCH_JS = os.path.join(ROOT, "patch", "lms-zh-patch.js")
-BAK_DIR = os.path.join(ROOT, "backups")
-BAK_BUNDLE = os.path.join(BAK_DIR, "main_window.predocs.bak")
-BAK_INDEX = os.path.join(BAK_DIR, "index.html.bak")
+# 原地备份: 原始备份与待修复文件放在同一安装目录 (renderer/), 而非项目 backups/
+# 这样即使项目目录丢失, 卸载/还原也能独立完成。文件名用 .bak 后缀, Electron 不会加载。
+LEGACY_BAK_DIR = os.path.join(ROOT, "backups")  # 仅首次迁移旧版本备份用
+
+
+def bak_bundle():
+    return os.path.join(find_renderer(), "main_window.js.bak")
+
+
+def bak_index():
+    return os.path.join(find_renderer(), "index.html.bak")
 LOG = os.path.join(ROOT, "logs", "lms_zh.log")
 
 INJECT = '<script src="zh_dict.js"></script><script src="lms-zh-patch.js"></script>'
@@ -189,7 +197,7 @@ def _run(py_script, *args, env_extra=None):
         env.update(env_extra)
     # 让底层脚本用我们探测到的 renderer
     env.setdefault("LMSZH_BUNDLE", bundle_path())
-    env.setdefault("LMSZH_BAK", BAK_BUNDLE)
+    env.setdefault("LMSZH_BAK", bak_bundle())
     r = subprocess.run([sys.executable, py_script, *args], capture_output=True,
                        text=True, encoding="utf-8", errors="replace", env=env, cwd=ROOT)
     out = (r.stdout or "").strip()
@@ -202,30 +210,45 @@ def _run(py_script, *args, env_extra=None):
 
 
 # ---------------- 备份管理 ----------------
-def ensure_pristine():
-    """确保原始备份存在。若缺失且当前未打补丁 → 从当前安装文件创建。"""
-    if os.path.isfile(BAK_BUNDLE) and os.path.isfile(BAK_INDEX):
+def ensure_inplace_backup():
+    """确保安装目录旁的 .bak 原始备份存在。
+
+    - 已存在 → 直接返回
+    - 缺失但项目旧 backups/ 有原始 → 迁移过来 (兼容旧版布局)
+    - 缺失且当前未打补丁 → 从当前官方文件就地创建
+    - 缺失且当前已打补丁且无旧备份 → 报错 (不能从已打补丁文件反推原始)
+    """
+    bb, bi = bak_bundle(), bak_index()
+    if os.path.isfile(bb) and os.path.isfile(bi):
+        return
+    legacy_b = os.path.join(LEGACY_BAK_DIR, "main_window.predocs.bak")
+    legacy_i = os.path.join(LEGACY_BAK_DIR, "index.html.bak")
+    if os.path.isfile(legacy_b) and os.path.isfile(legacy_i):
+        log("[*] 迁移旧备份 -> 安装目录原地备份 ...")
+        shutil.copyfile(legacy_b, bb)
+        shutil.copyfile(legacy_i, bi)
+        log("    已生成 %s / %s" % (os.path.basename(bb), os.path.basename(bi)))
         return
     if is_patched():
         raise SystemExit("检测到已打补丁但缺少原始备份, 无法安全继续。\n"
-                         "请先手动卸载/还原, 或把未修改的原始 main_window.js / index.html 放入 backups/。")
-    log("[*] 首次运行: 从当前安装创建原始备份 ...")
-    shutil.copyfile(bundle_path(), BAK_BUNDLE)
-    shutil.copyfile(index_path(), BAK_INDEX)
-    log("    已备份 -> %s / %s" % (os.path.basename(BAK_BUNDLE), os.path.basename(BAK_INDEX)))
+                         "请先运行 install 让工具从官方文件重建 .bak 备份。")
+    log("[*] 首次运行: 在安装目录就地创建原始备份 ...")
+    shutil.copyfile(bundle_path(), bb)
+    shutil.copyfile(index_path(), bi)
+    log("    已备份 -> %s / %s" % (os.path.basename(bb), os.path.basename(bi)))
 
 
 def refresh_pristine():
-    log("[*] 适配新版: 用当前安装文件刷新原始备份 ...")
-    shutil.copyfile(bundle_path(), BAK_BUNDLE)
-    shutil.copyfile(index_path(), BAK_INDEX)
+    log("[*] 适配新版: 用当前安装文件刷新原地备份 ...")
+    shutil.copyfile(bundle_path(), bak_bundle())
+    shutil.copyfile(index_path(), bak_index())
     log("    备份已刷新为新版本原始")
 
 
 def restore_pristine():
     log("[*] 还原原始文件 (main_window.js + index.html) ...")
-    shutil.copyfile(BAK_BUNDLE, bundle_path())
-    shutil.copyfile(BAK_INDEX, index_path())
+    shutil.copyfile(bak_bundle(), bundle_path())
+    shutil.copyfile(bak_index(), index_path())
     log("    已还原为未打补丁状态")
 
 
@@ -307,11 +330,11 @@ def install():
     kill_lmstudio()
     if not (os.path.isfile(ZH_JS) and os.path.isfile(PATCH_JS)):
         raise SystemExit("源文件缺失: zh_dict.js / lms-zh-patch.js")
-    ensure_pristine()
+    ensure_inplace_backup()
     # 适配新版: 当前未打补丁但和旧备份不同 → 新版本
-    if (not is_patched()) and os.path.isfile(BAK_BUNDLE):
+    if (not is_patched()) and os.path.isfile(bak_bundle()):
         try:
-            if _sha(bundle_path()) != _sha(BAK_BUNDLE):
+            if _sha(bundle_path()) != _sha(bak_bundle()):
                 refresh_pristine()
         except Exception:
             pass
@@ -328,10 +351,14 @@ def uninstall():
     require_admin()
     find_renderer()
     kill_lmstudio()
-    if os.path.isfile(BAK_BUNDLE) and os.path.isfile(BAK_INDEX):
+    try:
+        ensure_inplace_backup()
+    except SystemExit:
+        pass  # 备份缺失, 走下方最小化清理
+    if os.path.isfile(bak_bundle()) and os.path.isfile(bak_index()):
         restore_pristine()
     else:
-        log("[*] 缺少原始备份, 尝试最小化清理 ...")
+        log("[*] 缺少可用的原始备份, 尝试最小化清理 ...")
         remove_inject()
     delete_patch_files()
     log("=== 卸载完成 ✅ 已还原为官方英文原版 ===")
@@ -345,8 +372,8 @@ def update():
     if not is_patched():
         # 升级后安装目录里是"新版本原始"
         try:
-            if (os.path.isfile(BAK_BUNDLE)
-                    and _sha(bundle_path()) != _sha(BAK_BUNDLE)):
+            if (os.path.isfile(bak_bundle())
+                    and _sha(bundle_path()) != _sha(bak_bundle())):
                 refresh_pristine()
         except Exception:
             pass
@@ -377,7 +404,7 @@ def status():
     except Exception:
         n = 0
     print("  中文文档译文   :", "%d 篇就绪" % n)
-    print("  原始备份       :", "完整" if (os.path.isfile(BAK_BUNDLE) and os.path.isfile(BAK_INDEX)) else "缺失")
+    print("  原始备份(原地) :", "完整" if (os.path.isfile(bak_bundle()) and os.path.isfile(bak_index())) else "缺失")
     print("=======================================")
     if not (os.path.isfile(os.path.join(r, "lms-zh-patch.js")) and "lms-zh-patch.js" in
             open(index_path(), encoding="utf-8").read()):

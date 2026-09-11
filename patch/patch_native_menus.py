@@ -15,15 +15,14 @@ renderer 侧有 **两个** spec -> ipc-spec 的转换函数, 所有 label 都从
 _tr 在调用时读取 window.__ZH_DICT__ (由 zh_dict.js 注入)。
 
 - 幂等: 已 patch 过则跳过
-- 备份: backups/main_window.predocs.bak (与 native_menu.bak 字节相同, 复用之)
+- 备份: <renderer>/main_window.js.bak (原地备份, 与 zh_dict 同目录)
 - 需要管理员权限(写入 C:\\Program Files)
 """
 import os, sys, shutil
 
 BUNDLE = os.environ.get('LMSZH_BUNDLE') or \
     r'C:\Program Files\LM Studio\resources\app\.webpack\renderer\main_window.js'
-BACKUP = os.environ.get('LMSZH_BAK') or \
-    os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'backups', 'main_window.predocs.bak')
+BACKUP = os.environ.get('LMSZH_BAK') or os.path.join(os.path.dirname(BUNDLE), 'main_window.js.bak')
 
 TR = 'const ZH=window.__ZH_DICT__||{},_tr=s=>(ZH&&ZH[s])||s;'
 
