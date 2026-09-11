@@ -1,0 +1,17 @@
+# ===== 构建/部署产物（可重建，不入库）=====
+backups/
+logs/
+patch/docs_src/
+analysis/out/
+*.bak
+
+# ===== Python 缓存 =====
+__pycache__/
+*.pyc
+*.pyo
+
+# ===== 本地元数据（不对外）=====
+.workbuddy/
+
+# ===== 依赖（本项目无第三方依赖）=====
+node_modules/

@@ -1,0 +1,1406 @@
+[
+  {
+    "pageRelUrl": "0_app/0_root/index.md",
+    "quote": "\"",
+    "body_start": 28929436,
+    "body_end": 28932173,
+    "raw_len": 2737,
+    "title": "Welcome to LM Studio Docs!",
+    "prettyName": "Welcome"
+  },
+  {
+    "pageRelUrl": "0_app/0_root/system-requirements.md",
+    "quote": "\"",
+    "body_start": 28932439,
+    "body_end": 28933528,
+    "raw_len": 1089,
+    "title": "System Requirements",
+    "prettyName": "System Requirements"
+  },
+  {
+    "pageRelUrl": "0_app/0_root/offline.md",
+    "quote": "\"",
+    "body_start": 28933774,
+    "body_end": 28936760,
+    "raw_len": 2986,
+    "title": "Offline Operation",
+    "prettyName": "Offline Operation"
+  },
+  {
+    "pageRelUrl": "0_app/1_basics/index.md",
+    "quote": "'",
+    "body_start": 28937003,
+    "body_end": 28939025,
+    "raw_len": 2022,
+    "title": "Get started with LM Studio",
+    "prettyName": "Overview"
+  },
+  {
+    "pageRelUrl": "0_app/1_basics/chat.md",
+    "quote": "'",
+    "body_start": 28939254,
+    "body_end": 28941183,
+    "raw_len": 1929,
+    "title": "Manage chats",
+    "prettyName": "Manage chats"
+  },
+  {
+    "pageRelUrl": "0_app/1_basics/download-model.md",
+    "quote": "'",
+    "body_start": 28941441,
+    "body_end": 28943089,
+    "raw_len": 1648,
+    "title": "Download an LLM",
+    "prettyName": "Download an LLM"
+  },
+  {
+    "pageRelUrl": "0_app/1_basics/rag.md",
+    "quote": "\"",
+    "body_start": 28943365,
+    "body_end": 28944963,
+    "raw_len": 1598,
+    "title": "Chat with Documents",
+    "prettyName": "Chat with Documents"
+  },
+  {
+    "pageRelUrl": "0_app/2_mcp/index.md",
+    "quote": "'",
+    "body_start": 28945195,
+    "body_end": 28948156,
+    "raw_len": 2961,
+    "title": "Use MCP Servers",
+    "prettyName": "Use MCP Servers"
+  },
+  {
+    "pageRelUrl": "0_app/2_mcp/deeplink.md",
+    "quote": "'",
+    "body_start": 28948430,
+    "body_end": 28949698,
+    "raw_len": 1268,
+    "title": "`Add to LM Studio` Button",
+    "prettyName": "`Add to LM Studio` Button"
+  },
+  {
+    "pageRelUrl": "0_app/3_modelyaml/index.md",
+    "quote": "'",
+    "body_start": 28950095,
+    "body_end": 28954790,
+    "raw_len": 4695,
+    "title": "Introduction to `model.yaml`",
+    "prettyName": "Introduction to `model.yaml`"
+  },
+  {
+    "pageRelUrl": "0_app/3_modelyaml/publish.md",
+    "quote": "'",
+    "body_start": 28955065,
+    "body_end": 28957064,
+    "raw_len": 1999,
+    "title": "Publish a `model.yaml`",
+    "prettyName": "Publish a `model.yaml`"
+  },
+  {
+    "pageRelUrl": "0_app/3_presets/index.md",
+    "quote": "'",
+    "body_start": 28957359,
+    "body_end": 28960198,
+    "raw_len": 2839,
+    "title": "Config Presets",
+    "prettyName": "Overview"
+  },
+  {
+    "pageRelUrl": "0_app/3_presets/import.md",
+    "quote": "'",
+    "body_start": 28960491,
+    "body_end": 28962524,
+    "raw_len": 2033,
+    "title": "Importing and Sharing",
+    "prettyName": "Importing and Sharing"
+  },
+  {
+    "pageRelUrl": "0_app/3_presets/publish.md",
+    "quote": "'",
+    "body_start": 28962831,
+    "body_end": 28964198,
+    "raw_len": 1367,
+    "title": "Publish Your Presets",
+    "prettyName": "Publish a Preset"
+  },
+  {
+    "pageRelUrl": "0_app/3_presets/pull.md",
+    "quote": "'",
+    "body_start": 28964477,
+    "body_end": 28965053,
+    "raw_len": 576,
+    "title": "Pull Updates",
+    "prettyName": "Pull Updates"
+  },
+  {
+    "pageRelUrl": "0_app/3_presets/push.md",
+    "quote": "'",
+    "body_start": 28965309,
+    "body_end": 28966358,
+    "raw_len": 1049,
+    "title": "Push New Revisions",
+    "prettyName": "Push New Revisions"
+  },
+  {
+    "pageRelUrl": "0_app/5_advanced/speculative-decoding.md",
+    "quote": "'",
+    "body_start": 28966626,
+    "body_end": 28971752,
+    "raw_len": 5126,
+    "title": "Speculative Decoding",
+    "prettyName": "Speculative Decoding"
+  },
+  {
+    "pageRelUrl": "0_app/5_advanced/import-model.md",
+    "quote": "'",
+    "body_start": 28972022,
+    "body_end": 28973256,
+    "raw_len": 1234,
+    "title": "Import Models",
+    "prettyName": "Import Models"
+  },
+  {
+    "pageRelUrl": "0_app/5_advanced/parallel-requests.md",
+    "quote": "'",
+    "body_start": 28973528,
+    "body_end": 28974697,
+    "raw_len": 1169,
+    "title": "Parallel Requests",
+    "prettyName": "Parallel Requests"
+  },
+  {
+    "pageRelUrl": "0_app/5_advanced/per-model.md",
+    "quote": "'",
+    "body_start": 28974976,
+    "body_end": 28977091,
+    "raw_len": 2115,
+    "title": "Per-model Defaults",
+    "prettyName": "Per-model Defaults"
+  },
+  {
+    "pageRelUrl": "0_app/5_advanced/prompt-template.md",
+    "quote": "\"",
+    "body_start": 28977358,
+    "body_end": 28979113,
+    "raw_len": 1755,
+    "title": "Prompt Template",
+    "prettyName": "Prompt Template"
+  },
+  {
+    "pageRelUrl": "0_app/6_user-interface/languages.md",
+    "quote": "\"",
+    "body_start": 28979459,
+    "body_end": 28983730,
+    "raw_len": 4271,
+    "title": "LM Studio in your language",
+    "prettyName": "Languages"
+  },
+  {
+    "pageRelUrl": "0_app/6_user-interface/modes.md",
+    "quote": "'",
+    "body_start": 28984009,
+    "body_end": 28984984,
+    "raw_len": 975,
+    "title": "User or Developer",
+    "prettyName": "Enable Developer Mode"
+  },
+  {
+    "pageRelUrl": "0_app/6_user-interface/themes.md",
+    "quote": "'",
+    "body_start": 28985229,
+    "body_end": 28985586,
+    "raw_len": 357,
+    "title": "Color Themes",
+    "prettyName": "Color Themes"
+  },
+  {
+    "pageRelUrl": "1_developer/index.md",
+    "quote": "'",
+    "body_start": 28985934,
+    "body_end": 28988779,
+    "raw_len": 2845,
+    "title": "LM Studio Developer Docs",
+    "prettyName": "Introduction"
+  },
+  {
+    "pageRelUrl": "1_developer/api-changelog.md",
+    "quote": "'",
+    "body_start": 28988966,
+    "body_end": 28999177,
+    "raw_len": 10211,
+    "title": "API Changelog",
+    "prettyName": "API Changelog"
+  },
+  {
+    "pageRelUrl": "1_developer/0_core/authentication.md",
+    "quote": "'",
+    "body_start": 28999367,
+    "body_end": 29002373,
+    "raw_len": 3006,
+    "title": "Authentication",
+    "prettyName": "Authentication"
+  },
+  {
+    "pageRelUrl": "1_developer/0_core/headless.md",
+    "quote": "'",
+    "body_start": 29002712,
+    "body_end": 29005840,
+    "raw_len": 3128,
+    "title": "Run LM Studio as a service (headless)",
+    "prettyName": "`llmster` - Headless Mode"
+  },
+  {
+    "pageRelUrl": "1_developer/0_core/headless_llmster.md",
+    "quote": "\"",
+    "body_start": 29006132,
+    "body_end": 29008980,
+    "raw_len": 2848,
+    "title": "Setup llmster as a Startup Task on Linux",
+    "prettyName": "Linux Startup Task"
+  },
+  {
+    "pageRelUrl": "1_developer/0_core/lmlink.md",
+    "quote": "'",
+    "body_start": 29009240,
+    "body_end": 29010403,
+    "raw_len": 1163,
+    "title": "Using LM Link",
+    "prettyName": "Using with LM Link"
+  },
+  {
+    "pageRelUrl": "1_developer/0_core/mcp.md",
+    "quote": "'",
+    "body_start": 29010669,
+    "body_end": 29025434,
+    "raw_len": 14765,
+    "title": "Using MCP via API",
+    "prettyName": "Using MCP via API"
+  },
+  {
+    "pageRelUrl": "1_developer/0_core/ttl-and-auto-evict.md",
+    "quote": "'",
+    "body_start": 29025724,
+    "body_end": 29030315,
+    "raw_len": 4591,
+    "title": "Idle TTL and Auto-Evict",
+    "prettyName": "Idle TTL and Auto-Evict"
+  },
+  {
+    "pageRelUrl": "1_developer/0_core/0_server/index.md",
+    "quote": "'",
+    "body_start": 29030609,
+    "body_end": 29031840,
+    "raw_len": 1231,
+    "title": "LM Studio as a Local LLM API Server",
+    "prettyName": "Running the Server"
+  },
+  {
+    "pageRelUrl": "1_developer/0_core/0_server/settings.md",
+    "quote": "'",
+    "body_start": 29032104,
+    "body_end": 29034425,
+    "raw_len": 2321,
+    "title": "Server Settings",
+    "prettyName": "Server Settings"
+  },
+  {
+    "pageRelUrl": "1_developer/0_core/0_server/serve-on-network.md",
+    "quote": "'",
+    "body_start": 29034731,
+    "body_end": 29035556,
+    "raw_len": 825,
+    "title": "Serve on Local Network",
+    "prettyName": "Serve on Local Network"
+  },
+  {
+    "pageRelUrl": "1_developer/2_rest/index.md",
+    "quote": "'",
+    "body_start": 29035835,
+    "body_end": 29040144,
+    "raw_len": 4309,
+    "title": "LM Studio API",
+    "prettyName": "Overview"
+  },
+  {
+    "pageRelUrl": "1_developer/2_rest/quickstart.md",
+    "quote": "'",
+    "body_start": 29040453,
+    "body_end": 29050750,
+    "raw_len": 10297,
+    "title": "Get up and running with the LM Studio API",
+    "prettyName": "Quickstart"
+  },
+  {
+    "pageRelUrl": "1_developer/2_rest/stateful-chats.md",
+    "quote": "'",
+    "body_start": 29051035,
+    "body_end": 29053843,
+    "raw_len": 2808,
+    "title": "Stateful Chats",
+    "prettyName": "Stateful Chats"
+  },
+  {
+    "pageRelUrl": "1_developer/2_rest/streaming-events.md",
+    "quote": "'",
+    "body_start": 29054201,
+    "body_end": 29071733,
+    "raw_len": 17532,
+    "title": "Streaming events",
+    "prettyName": "Streaming events"
+  },
+  {
+    "pageRelUrl": "1_developer/2_rest/chat.md",
+    "quote": "'",
+    "body_start": 29072062,
+    "body_end": 29086995,
+    "raw_len": 14933,
+    "title": "Chat with a model",
+    "prettyName": "Chat with a model"
+  },
+  {
+    "pageRelUrl": "1_developer/2_rest/list.md",
+    "quote": "'",
+    "body_start": 29087322,
+    "body_end": 29092866,
+    "raw_len": 5544,
+    "title": "List your models",
+    "prettyName": "List your models"
+  },
+  {
+    "pageRelUrl": "1_developer/2_rest/load.md",
+    "quote": "'",
+    "body_start": 29093180,
+    "body_end": 29098543,
+    "raw_len": 5363,
+    "title": "Load a model",
+    "prettyName": "Load a model"
+  },
+  {
+    "pageRelUrl": "1_developer/2_rest/download.md",
+    "quote": "'",
+    "body_start": 29098821,
+    "body_end": 29100937,
+    "raw_len": 2116,
+    "title": "Download a model",
+    "prettyName": "Download a model"
+  },
+  {
+    "pageRelUrl": "1_developer/2_rest/unload.md",
+    "quote": "'",
+    "body_start": 29101212,
+    "body_end": 29102128,
+    "raw_len": 916,
+    "title": "Unload a model",
+    "prettyName": "Unload a model"
+  },
+  {
+    "pageRelUrl": "1_developer/2_rest/download-status.md",
+    "quote": "'",
+    "body_start": 29102421,
+    "body_end": 29104577,
+    "raw_len": 2156,
+    "title": "Get download status",
+    "prettyName": "Get download status"
+  },
+  {
+    "pageRelUrl": "1_developer/2_rest/endpoints.md",
+    "quote": "'",
+    "body_start": 29104987,
+    "body_end": 29112294,
+    "raw_len": 7307,
+    "title": "REST API v0",
+    "prettyName": "REST API v0"
+  },
+  {
+    "pageRelUrl": "1_developer/3_openai-compat/index.md",
+    "quote": "'",
+    "body_start": 29112627,
+    "body_end": 29115294,
+    "raw_len": 2667,
+    "title": "OpenAI Compatibility Endpoints",
+    "prettyName": "Overview"
+  },
+  {
+    "pageRelUrl": "1_developer/3_openai-compat/structured-output.md",
+    "quote": "'",
+    "body_start": 29115591,
+    "body_end": 29120398,
+    "raw_len": 4807,
+    "title": "Structured Output",
+    "prettyName": "Structured Output"
+  },
+  {
+    "pageRelUrl": "1_developer/3_openai-compat/tools.md",
+    "quote": "'",
+    "body_start": 29120702,
+    "body_end": 29162443,
+    "raw_len": 41741,
+    "title": "Tool Use",
+    "prettyName": "Tools and Function Calling"
+  },
+  {
+    "pageRelUrl": "1_developer/3_openai-compat/models.md",
+    "quote": "\"",
+    "body_start": 29162747,
+    "body_end": 29162960,
+    "raw_len": 213,
+    "title": "List Models",
+    "prettyName": "List Models"
+  },
+  {
+    "pageRelUrl": "1_developer/3_openai-compat/responses.md",
+    "quote": "'",
+    "body_start": 29163316,
+    "body_end": 29164927,
+    "raw_len": 1611,
+    "title": "Responses",
+    "prettyName": "Responses"
+  },
+  {
+    "pageRelUrl": "1_developer/3_openai-compat/chat-completions.md",
+    "quote": "'",
+    "body_start": 29165254,
+    "body_end": 29166296,
+    "raw_len": 1042,
+    "title": "Chat Completions",
+    "prettyName": "Chat Completions"
+  },
+  {
+    "pageRelUrl": "1_developer/3_openai-compat/embeddings.md",
+    "quote": "'",
+    "body_start": 29166600,
+    "body_end": 29167075,
+    "raw_len": 475,
+    "title": "Embeddings",
+    "prettyName": "Embeddings"
+  },
+  {
+    "pageRelUrl": "1_developer/3_openai-compat/completions.md",
+    "quote": "\"",
+    "body_start": 29167408,
+    "body_end": 29167745,
+    "raw_len": 337,
+    "title": "Completions (Legacy)",
+    "prettyName": "Completions (Legacy)"
+  },
+  {
+    "pageRelUrl": "1_developer/4_anthropic-compat/index.md",
+    "quote": "'",
+    "body_start": 29168069,
+    "body_end": 29170348,
+    "raw_len": 2279,
+    "title": "Anthropic Compatibility Endpoints",
+    "prettyName": "Overview"
+  },
+  {
+    "pageRelUrl": "1_developer/4_anthropic-compat/messages.md",
+    "quote": "'",
+    "body_start": 29170658,
+    "body_end": 29172526,
+    "raw_len": 1868,
+    "title": "Messages",
+    "prettyName": "Messages"
+  },
+  {
+    "pageRelUrl": "1_python/index.md",
+    "quote": "'",
+    "body_start": 29172831,
+    "body_end": 29178024,
+    "raw_len": 5193,
+    "title": "`lmstudio-python` (Python SDK)",
+    "prettyName": "Introduction"
+  },
+  {
+    "pageRelUrl": "1_python/1_getting-started/project-setup.md",
+    "quote": "'",
+    "body_start": 29178230,
+    "body_end": 29184269,
+    "raw_len": 6039,
+    "title": "Project Setup",
+    "prettyName": "Project Setup"
+  },
+  {
+    "pageRelUrl": "1_python/1_getting-started/repl.md",
+    "quote": "'",
+    "body_start": 29184615,
+    "body_end": 29188492,
+    "raw_len": 3877,
+    "title": "Using `lmstudio-python` in REPL",
+    "prettyName": "REPL Usage"
+  },
+  {
+    "pageRelUrl": "1_python/1_getting-started/authentication.md",
+    "quote": "'",
+    "body_start": 29188747,
+    "body_end": 29190847,
+    "raw_len": 2100,
+    "title": "Authentication",
+    "prettyName": "Authentication"
+  },
+  {
+    "pageRelUrl": "1_python/1_llm-prediction/chat-completion.md",
+    "quote": "'",
+    "body_start": 29191149,
+    "body_end": 29204463,
+    "raw_len": 13314,
+    "title": "Chat Completions",
+    "prettyName": "Chat"
+  },
+  {
+    "pageRelUrl": "1_python/1_llm-prediction/image-input.md",
+    "quote": "'",
+    "body_start": 29204726,
+    "body_end": 29209543,
+    "raw_len": 4817,
+    "title": "Image Input",
+    "prettyName": "Image Input"
+  },
+  {
+    "pageRelUrl": "1_python/1_llm-prediction/cancelling-predictions.md",
+    "quote": "'",
+    "body_start": 29209838,
+    "body_end": 29213363,
+    "raw_len": 3525,
+    "title": "Cancelling Predictions",
+    "prettyName": "Cancelling Predictions"
+  },
+  {
+    "pageRelUrl": "1_python/1_llm-prediction/structured-response.md",
+    "quote": "'",
+    "body_start": 29213694,
+    "body_end": 29219771,
+    "raw_len": 6077,
+    "title": "Structured Response",
+    "prettyName": "Structured Response"
+  },
+  {
+    "pageRelUrl": "1_python/1_llm-prediction/speculative-decoding.md",
+    "quote": "'",
+    "body_start": 29220090,
+    "body_end": 29221948,
+    "raw_len": 1858,
+    "title": "Speculative Decoding",
+    "prettyName": "Speculative Decoding"
+  },
+  {
+    "pageRelUrl": "1_python/1_llm-prediction/completion.md",
+    "quote": "'",
+    "body_start": 29222230,
+    "body_end": 29231959,
+    "raw_len": 9729,
+    "title": "Text Completions",
+    "prettyName": "Text Completions"
+  },
+  {
+    "pageRelUrl": "1_python/1_llm-prediction/parameters.md",
+    "quote": "'",
+    "body_start": 29232267,
+    "body_end": 29237166,
+    "raw_len": 4899,
+    "title": "Configuring the Model",
+    "prettyName": "Configuration Parameters"
+  },
+  {
+    "pageRelUrl": "1_python/1_llm-prediction/working-with-chats.md",
+    "quote": "'",
+    "body_start": 29237457,
+    "body_end": 29239716,
+    "raw_len": 2259,
+    "title": "Working with Chats",
+    "prettyName": "Working with Chats"
+  },
+  {
+    "pageRelUrl": "1_python/2_agent/act.md",
+    "quote": "'",
+    "body_start": 29240058,
+    "body_end": 29249084,
+    "raw_len": 9026,
+    "title": "The `.act()` call",
+    "prettyName": "The `.act()` call"
+  },
+  {
+    "pageRelUrl": "1_python/2_agent/tools.md",
+    "quote": "'",
+    "body_start": 29249365,
+    "body_end": 29255885,
+    "raw_len": 6520,
+    "title": "Tool Definition",
+    "prettyName": "Tool Definition"
+  },
+  {
+    "pageRelUrl": "1_python/3_embedding/index.md",
+    "quote": "'",
+    "body_start": 29256139,
+    "body_end": 29257036,
+    "raw_len": 897,
+    "title": "Embedding",
+    "prettyName": "Generating embedding vectors"
+  },
+  {
+    "pageRelUrl": "1_python/4_tokenization/index.md",
+    "quote": "'",
+    "body_start": 29257291,
+    "body_end": 29259624,
+    "raw_len": 2333,
+    "title": "Tokenization",
+    "prettyName": "Tokenizing text"
+  },
+  {
+    "pageRelUrl": "1_python/5_manage-models/list-downloaded.md",
+    "quote": "\"",
+    "body_start": 29259944,
+    "body_end": 29262006,
+    "raw_len": 2062,
+    "title": "List Downloaded Models",
+    "prettyName": "List Downloaded Models"
+  },
+  {
+    "pageRelUrl": "1_python/5_manage-models/list-loaded.md",
+    "quote": "'",
+    "body_start": 29262286,
+    "body_end": 29263837,
+    "raw_len": 1551,
+    "title": "List Loaded Models",
+    "prettyName": "List Loaded Models"
+  },
+  {
+    "pageRelUrl": "1_python/5_manage-models/loading.md",
+    "quote": "'",
+    "body_start": 29264128,
+    "body_end": 29271504,
+    "raw_len": 7376,
+    "title": "Manage Models in Memory",
+    "prettyName": "Load and Access Models"
+  },
+  {
+    "pageRelUrl": "1_python/6_model-info/get-context-length.md",
+    "quote": "'",
+    "body_start": 29271808,
+    "body_end": 29274144,
+    "raw_len": 2336,
+    "title": "Get Context Length",
+    "prettyName": "Get Context Length"
+  },
+  {
+    "pageRelUrl": "1_python/6_model-info/get-load-config.md",
+    "quote": "'",
+    "body_start": 29274416,
+    "body_end": 29275821,
+    "raw_len": 1405,
+    "title": "Get Load Config",
+    "prettyName": "Get Load Config"
+  },
+  {
+    "pageRelUrl": "1_python/6_model-info/get-model-info.md",
+    "quote": "'",
+    "body_start": 29276079,
+    "body_end": 29277732,
+    "raw_len": 1653,
+    "title": "Get Model Info",
+    "prettyName": "Get Model Info"
+  },
+  {
+    "pageRelUrl": "2_typescript/index.md",
+    "quote": "'",
+    "body_start": 29278029,
+    "body_end": 29280025,
+    "raw_len": 1996,
+    "title": "`lmstudio-js` (TypeScript SDK)",
+    "prettyName": "Introduction"
+  },
+  {
+    "pageRelUrl": "2_typescript/authentication.md",
+    "quote": "'",
+    "body_start": 29280202,
+    "body_end": 29282103,
+    "raw_len": 1901,
+    "title": "Authentication",
+    "prettyName": "Authentication"
+  },
+  {
+    "pageRelUrl": "2_typescript/project-setup.md",
+    "quote": "\"",
+    "body_start": 29282299,
+    "body_end": 29283340,
+    "raw_len": 1041,
+    "title": "Project Setup",
+    "prettyName": "Project Setup"
+  },
+  {
+    "pageRelUrl": "2_typescript/2_llm-prediction/chat-completion.md",
+    "quote": "'",
+    "body_start": 29283561,
+    "body_end": 29291403,
+    "raw_len": 7842,
+    "title": "Chat Completions",
+    "prettyName": "Chat"
+  },
+  {
+    "pageRelUrl": "2_typescript/2_llm-prediction/working-with-chats.md",
+    "quote": "'",
+    "body_start": 29291700,
+    "body_end": 29294477,
+    "raw_len": 2777,
+    "title": "Working with Chats",
+    "prettyName": "Working with Chats"
+  },
+  {
+    "pageRelUrl": "2_typescript/2_llm-prediction/cancelling-predictions.md",
+    "quote": "'",
+    "body_start": 29294779,
+    "body_end": 29296901,
+    "raw_len": 2122,
+    "title": "Cancelling Predictions",
+    "prettyName": "Cancelling Predictions"
+  },
+  {
+    "pageRelUrl": "2_typescript/2_llm-prediction/image-input.md",
+    "quote": "'",
+    "body_start": 29297175,
+    "body_end": 29299152,
+    "raw_len": 1977,
+    "title": "Image Input",
+    "prettyName": "Image Input"
+  },
+  {
+    "pageRelUrl": "2_typescript/2_llm-prediction/structured-response.md",
+    "quote": "'",
+    "body_start": 29299497,
+    "body_end": 29305222,
+    "raw_len": 5725,
+    "title": "Structured Response",
+    "prettyName": "Structured Response"
+  },
+  {
+    "pageRelUrl": "2_typescript/2_llm-prediction/speculative-decoding.md",
+    "quote": "'",
+    "body_start": 29305541,
+    "body_end": 29307469,
+    "raw_len": 1928,
+    "title": "Speculative Decoding",
+    "prettyName": "Speculative Decoding"
+  },
+  {
+    "pageRelUrl": "2_typescript/2_llm-prediction/completion.md",
+    "quote": "'",
+    "body_start": 29307760,
+    "body_end": 29313189,
+    "raw_len": 5429,
+    "title": "Generate Completions",
+    "prettyName": "Generate Completions"
+  },
+  {
+    "pageRelUrl": "2_typescript/2_llm-prediction/parameters.md",
+    "quote": "'",
+    "body_start": 29313501,
+    "body_end": 29315897,
+    "raw_len": 2396,
+    "title": "Configuring the Model",
+    "prettyName": "Configuration Parameters"
+  },
+  {
+    "pageRelUrl": "2_typescript/3_agent/act.md",
+    "quote": "'",
+    "body_start": 29316235,
+    "body_end": 29322172,
+    "raw_len": 5937,
+    "title": "The `.act()` call",
+    "prettyName": "The `.act()` call"
+  },
+  {
+    "pageRelUrl": "2_typescript/3_agent/tools.md",
+    "quote": "'",
+    "body_start": 29322459,
+    "body_end": 29325317,
+    "raw_len": 2858,
+    "title": "Tool Definition",
+    "prettyName": "Tool Definition"
+  },
+  {
+    "pageRelUrl": "2_typescript/3_plugins/index.md",
+    "quote": "\"",
+    "body_start": 29325612,
+    "body_end": 29327493,
+    "raw_len": 1881,
+    "title": "Introduction to Plugins",
+    "prettyName": "Introduction to Plugins"
+  },
+  {
+    "pageRelUrl": "2_typescript/3_plugins/dependencies.md",
+    "quote": "\"",
+    "body_start": 29327769,
+    "body_end": 29328528,
+    "raw_len": 759,
+    "title": "Using `npm` Dependencies",
+    "prettyName": "Using `npm` Dependencies"
+  },
+  {
+    "pageRelUrl": "2_typescript/3_plugins/1_tools-provider/index.md",
+    "quote": "'",
+    "body_start": 29328849,
+    "body_end": 29329479,
+    "raw_len": 630,
+    "title": "Introduction to Tools Provider",
+    "prettyName": "Introduction to Tools Provider"
+  },
+  {
+    "pageRelUrl": "2_typescript/3_plugins/1_tools-provider/single-tool.md",
+    "quote": "'",
+    "body_start": 29329703,
+    "body_end": 29332621,
+    "raw_len": 2918,
+    "title": "Single Tool",
+    "prettyName": "Single Tool"
+  },
+  {
+    "pageRelUrl": "2_typescript/3_plugins/1_tools-provider/multiple-tools.md",
+    "quote": "'",
+    "body_start": 29332860,
+    "body_end": 29334939,
+    "raw_len": 2079,
+    "title": "Multiple Tools",
+    "prettyName": "Multiple Tools"
+  },
+  {
+    "pageRelUrl": "2_typescript/3_plugins/1_tools-provider/custom-configuration.md",
+    "quote": "'",
+    "body_start": 29335254,
+    "body_end": 29338220,
+    "raw_len": 2966,
+    "title": "Custom Configuration",
+    "prettyName": "Custom Configuration"
+  },
+  {
+    "pageRelUrl": "2_typescript/3_plugins/1_tools-provider/status-reports-and-warnings.md",
+    "quote": "'",
+    "body_start": 29338503,
+    "body_end": 29342009,
+    "raw_len": 3506,
+    "title": "Status Reports & Warnings",
+    "prettyName": "Status Reports & Warnings"
+  },
+  {
+    "pageRelUrl": "2_typescript/3_plugins/1_tools-provider/handling-aborts.md",
+    "quote": "'",
+    "body_start": 29342336,
+    "body_end": 29344013,
+    "raw_len": 1677,
+    "title": "Handling Aborts",
+    "prettyName": "Handling Aborts"
+  },
+  {
+    "pageRelUrl": "2_typescript/3_plugins/2_prompt-preprocessor/index.md",
+    "quote": "'",
+    "body_start": 29344329,
+    "body_end": 29345455,
+    "raw_len": 1126,
+    "title": "Introduction",
+    "prettyName": "Introduction"
+  },
+  {
+    "pageRelUrl": "2_typescript/3_plugins/2_prompt-preprocessor/examples.md",
+    "quote": "'",
+    "body_start": 29345673,
+    "body_end": 29347202,
+    "raw_len": 1529,
+    "title": "Examples",
+    "prettyName": "Examples"
+  },
+  {
+    "pageRelUrl": "2_typescript/3_plugins/2_prompt-preprocessor/custom-configuration.md",
+    "quote": "'",
+    "body_start": 29347461,
+    "body_end": 29349888,
+    "raw_len": 2427,
+    "title": "Custom Configuration",
+    "prettyName": "Custom Configuration"
+  },
+  {
+    "pageRelUrl": "2_typescript/3_plugins/2_prompt-preprocessor/custom-status-report.md",
+    "quote": "'",
+    "body_start": 29350159,
+    "body_end": 29351314,
+    "raw_len": 1155,
+    "title": "Custom Status Report",
+    "prettyName": "Custom Status Report"
+  },
+  {
+    "pageRelUrl": "2_typescript/3_plugins/2_prompt-preprocessor/handling-aborts.md",
+    "quote": "\"",
+    "body_start": 29351570,
+    "body_end": 29351873,
+    "raw_len": 303,
+    "title": "Handling Aborts",
+    "prettyName": "Handling Aborts"
+  },
+  {
+    "pageRelUrl": "2_typescript/3_plugins/3_generator/index.md",
+    "quote": "\"",
+    "body_start": 29352172,
+    "body_end": 29353222,
+    "raw_len": 1050,
+    "title": "Introduction",
+    "prettyName": "Introduction"
+  },
+  {
+    "pageRelUrl": "2_typescript/3_plugins/3_generator/text-only-generators.md",
+    "quote": "'",
+    "body_start": 29353468,
+    "body_end": 29355097,
+    "raw_len": 1629,
+    "title": "Text-only Generators",
+    "prettyName": "Text-only Generators"
+  },
+  {
+    "pageRelUrl": "2_typescript/3_plugins/3_generator/tool-calling-generators.md",
+    "quote": "\"",
+    "body_start": 29355367,
+    "body_end": 29358372,
+    "raw_len": 3005,
+    "title": "Tool calling generators",
+    "prettyName": "Tool calling generators"
+  },
+  {
+    "pageRelUrl": "2_typescript/3_plugins/4_custom-configuration/index.md",
+    "quote": "\"",
+    "body_start": 29358688,
+    "body_end": 29360322,
+    "raw_len": 1634,
+    "title": "Introduction",
+    "prettyName": "Introduction"
+  },
+  {
+    "pageRelUrl": "2_typescript/3_plugins/4_custom-configuration/config-ts.md",
+    "quote": "'",
+    "body_start": 29360560,
+    "body_end": 29363210,
+    "raw_len": 2650,
+    "title": "`config.ts` File",
+    "prettyName": "`config.ts` File"
+  },
+  {
+    "pageRelUrl": "2_typescript/3_plugins/4_custom-configuration/accessing-config.md",
+    "quote": "'",
+    "body_start": 29363473,
+    "body_end": 29364596,
+    "raw_len": 1123,
+    "title": "Accessing Configuration",
+    "prettyName": "Accessing Configuration"
+  },
+  {
+    "pageRelUrl": "2_typescript/3_plugins/4_custom-configuration/defining-new-fields.md",
+    "quote": "'",
+    "body_start": 29364861,
+    "body_end": 29369348,
+    "raw_len": 4487,
+    "title": "Defining New Fields",
+    "prettyName": "Defining New Fields"
+  },
+  {
+    "pageRelUrl": "2_typescript/3_plugins/5_publish-plugins/index.md",
+    "quote": "\"",
+    "body_start": 29369676,
+    "body_end": 29371052,
+    "raw_len": 1376,
+    "title": "Sharing Plugins",
+    "prettyName": "Sharing Plugins"
+  },
+  {
+    "pageRelUrl": "2_typescript/4_embedding/index.md",
+    "quote": "'",
+    "body_start": 29371334,
+    "body_end": 29372319,
+    "raw_len": 985,
+    "title": "Embedding",
+    "prettyName": "Generating embedding vectors"
+  },
+  {
+    "pageRelUrl": "2_typescript/5_tokenization/index.md",
+    "quote": "'",
+    "body_start": 29372578,
+    "body_end": 29376062,
+    "raw_len": 3484,
+    "title": "Tokenization",
+    "prettyName": "Tokenizing text"
+  },
+  {
+    "pageRelUrl": "2_typescript/6_manage-models/list-downloaded.md",
+    "quote": "'",
+    "body_start": 29376376,
+    "body_end": 29377879,
+    "raw_len": 1503,
+    "title": "List Local Models",
+    "prettyName": "List Local Models"
+  },
+  {
+    "pageRelUrl": "2_typescript/6_manage-models/list-loaded.md",
+    "quote": "'",
+    "body_start": 29378163,
+    "body_end": 29378918,
+    "raw_len": 755,
+    "title": "List Loaded Models",
+    "prettyName": "List Loaded Models"
+  },
+  {
+    "pageRelUrl": "2_typescript/6_manage-models/loading.md",
+    "quote": "'",
+    "body_start": 29379213,
+    "body_end": 29383626,
+    "raw_len": 4413,
+    "title": "Manage Models in Memory",
+    "prettyName": "Load and Access Models"
+  },
+  {
+    "pageRelUrl": "2_typescript/7_api-reference/llm-load-model-config.md",
+    "quote": "\"",
+    "body_start": 29383933,
+    "body_end": 29389809,
+    "raw_len": 5876,
+    "title": "`LLMLoadModelConfig`",
+    "prettyName": "`LLMLoadModelConfig`"
+  },
+  {
+    "pageRelUrl": "2_typescript/7_api-reference/llm-prediction-config-input.md",
+    "quote": "'",
+    "body_start": 29390092,
+    "body_end": 29396430,
+    "raw_len": 6338,
+    "title": "`LLMPredictionConfigInput`",
+    "prettyName": "`LLMPredictionConfigInput`"
+  },
+  {
+    "pageRelUrl": "2_typescript/8_model-info/get-context-length.md",
+    "quote": "'",
+    "body_start": 29396758,
+    "body_end": 29399143,
+    "raw_len": 2385,
+    "title": "Get Context Length",
+    "prettyName": "Get Context Length"
+  },
+  {
+    "pageRelUrl": "2_typescript/8_model-info/get-model-info.md",
+    "quote": "'",
+    "body_start": 29399408,
+    "body_end": 29400440,
+    "raw_len": 1032,
+    "title": "Get Model Info",
+    "prettyName": "Get Model Info"
+  },
+  {
+    "pageRelUrl": "3_cli/index.md",
+    "quote": "\"",
+    "body_start": 29400716,
+    "body_end": 29404467,
+    "raw_len": 3751,
+    "title": "`lms` — LM Studio's CLI",
+    "prettyName": "Introduction"
+  },
+  {
+    "pageRelUrl": "3_cli/contributing.md",
+    "quote": "\"",
+    "body_start": 29404668,
+    "body_end": 29405048,
+    "raw_len": 380,
+    "title": "Contributing",
+    "prettyName": "Contributing"
+  },
+  {
+    "pageRelUrl": "3_cli/0_local-models/chat.md",
+    "quote": "'",
+    "body_start": 29405256,
+    "body_end": 29406881,
+    "raw_len": 1625,
+    "title": "`lms chat`",
+    "prettyName": "`lms chat`"
+  },
+  {
+    "pageRelUrl": "3_cli/0_local-models/get.md",
+    "quote": "'",
+    "body_start": 29407123,
+    "body_end": 29409094,
+    "raw_len": 1971,
+    "title": "`lms get`",
+    "prettyName": "`lms get`"
+  },
+  {
+    "pageRelUrl": "3_cli/0_local-models/load.md",
+    "quote": "'",
+    "body_start": 29409391,
+    "body_end": 29413665,
+    "raw_len": 4274,
+    "title": "`lms load`",
+    "prettyName": "`lms load`"
+  },
+  {
+    "pageRelUrl": "3_cli/0_local-models/ls.md",
+    "quote": "'",
+    "body_start": 29413913,
+    "body_end": 29416101,
+    "raw_len": 2188,
+    "title": "`lms ls`",
+    "prettyName": "`lms ls`"
+  },
+  {
+    "pageRelUrl": "3_cli/0_local-models/ps.md",
+    "quote": "\"",
+    "body_start": 29416358,
+    "body_end": 29417200,
+    "raw_len": 842,
+    "title": "`lms ps`",
+    "prettyName": "`lms ps`"
+  },
+  {
+    "pageRelUrl": "3_cli/0_local-models/import.md",
+    "quote": "'",
+    "body_start": 29417463,
+    "body_end": 29419130,
+    "raw_len": 1667,
+    "title": "`lms import`",
+    "prettyName": "`lms import`"
+  },
+  {
+    "pageRelUrl": "3_cli/1_serve/server-start.md",
+    "quote": "'",
+    "body_start": 29419438,
+    "body_end": 29420536,
+    "raw_len": 1098,
+    "title": "`lms server start`",
+    "prettyName": "`lms server start`"
+  },
+  {
+    "pageRelUrl": "3_cli/1_serve/server-status.md",
+    "quote": "'",
+    "body_start": 29420807,
+    "body_end": 29422275,
+    "raw_len": 1468,
+    "title": "`lms server status`",
+    "prettyName": "`lms server status`"
+  },
+  {
+    "pageRelUrl": "3_cli/1_serve/server-stop.md",
+    "quote": "\"",
+    "body_start": 29422525,
+    "body_end": 29422858,
+    "raw_len": 333,
+    "title": "`lms server stop`",
+    "prettyName": "`lms server stop`"
+  },
+  {
+    "pageRelUrl": "3_cli/1_serve/log-stream.md",
+    "quote": "'",
+    "body_start": 29423135,
+    "body_end": 29424538,
+    "raw_len": 1403,
+    "title": "`lms log stream`",
+    "prettyName": "`lms log stream`"
+  },
+  {
+    "pageRelUrl": "3_cli/2_daemon/daemon-up.md",
+    "quote": "'",
+    "body_start": 29424772,
+    "body_end": 29425585,
+    "raw_len": 813,
+    "title": "`lms daemon up`",
+    "prettyName": "`lms daemon up`"
+  },
+  {
+    "pageRelUrl": "3_cli/2_daemon/daemon-down.md",
+    "quote": "\"",
+    "body_start": 29425817,
+    "body_end": 29426147,
+    "raw_len": 330,
+    "title": "`lms daemon down`",
+    "prettyName": "`lms daemon down`"
+  },
+  {
+    "pageRelUrl": "3_cli/2_daemon/daemon-status.md",
+    "quote": "'",
+    "body_start": 29426394,
+    "body_end": 29427217,
+    "raw_len": 823,
+    "title": "`lms daemon status`",
+    "prettyName": "`lms daemon status`"
+  },
+  {
+    "pageRelUrl": "3_cli/2_daemon/daemon-update.md",
+    "quote": "'",
+    "body_start": 29427470,
+    "body_end": 29428162,
+    "raw_len": 692,
+    "title": "`lms daemon update`",
+    "prettyName": "`lms daemon update`"
+  },
+  {
+    "pageRelUrl": "3_cli/3_link/link-enable.md",
+    "quote": "\"",
+    "body_start": 29428422,
+    "body_end": 29429173,
+    "raw_len": 751,
+    "title": "`lms link enable`",
+    "prettyName": "`lms link enable`"
+  },
+  {
+    "pageRelUrl": "3_cli/3_link/link-disable.md",
+    "quote": "\"",
+    "body_start": 29429422,
+    "body_end": 29429821,
+    "raw_len": 399,
+    "title": "`lms link disable`",
+    "prettyName": "`lms link disable`"
+  },
+  {
+    "pageRelUrl": "3_cli/3_link/link-status.md",
+    "quote": "'",
+    "body_start": 29430080,
+    "body_end": 29430918,
+    "raw_len": 838,
+    "title": "`lms link status`",
+    "prettyName": "`lms link status`"
+  },
+  {
+    "pageRelUrl": "3_cli/3_link/link-set-device-name.md",
+    "quote": "'",
+    "body_start": 29431190,
+    "body_end": 29431618,
+    "raw_len": 428,
+    "title": "`lms link set-device-name`",
+    "prettyName": "`lms link set-device-name`"
+  },
+  {
+    "pageRelUrl": "3_cli/3_link/link-set-preferred-device.md",
+    "quote": "\"",
+    "body_start": 29431928,
+    "body_end": 29432692,
+    "raw_len": 764,
+    "title": "`lms link set-preferred-device`",
+    "prettyName": "`lms link set-preferred-device`"
+  },
+  {
+    "pageRelUrl": "3_cli/4_runtime/runtime.md",
+    "quote": "\"",
+    "body_start": 29432953,
+    "body_end": 29433569,
+    "raw_len": 616,
+    "title": "`lms runtime`",
+    "prettyName": "`lms runtime`"
+  },
+  {
+    "pageRelUrl": "3_cli/5_develop-and-publish/clone.md",
+    "quote": "'",
+    "body_start": 29433842,
+    "body_end": 29434557,
+    "raw_len": 715,
+    "title": "`lms clone`",
+    "prettyName": "`lms clone`"
+  },
+  {
+    "pageRelUrl": "3_cli/5_develop-and-publish/push.md",
+    "quote": "'",
+    "body_start": 29434850,
+    "body_end": 29436173,
+    "raw_len": 1323,
+    "title": "`lms push` (Beta)",
+    "prettyName": "`lms push`"
+  },
+  {
+    "pageRelUrl": "3_cli/5_develop-and-publish/dev.md",
+    "quote": "'",
+    "body_start": 29436460,
+    "body_end": 29437305,
+    "raw_len": 845,
+    "title": "`lms dev` (Beta)",
+    "prettyName": "`lms dev`"
+  },
+  {
+    "pageRelUrl": "3_cli/5_develop-and-publish/login.md",
+    "quote": "'",
+    "body_start": 29437570,
+    "body_end": 29438654,
+    "raw_len": 1084,
+    "title": "`lms login`",
+    "prettyName": "`lms login`"
+  },
+  {
+    "pageRelUrl": "4_integrations/index.md",
+    "quote": "\"",
+    "body_start": 29438940,
+    "body_end": 29439469,
+    "raw_len": 529,
+    "title": "Integrations",
+    "prettyName": "Introduction"
+  },
+  {
+    "pageRelUrl": "4_integrations/lmlink.md",
+    "quote": "'",
+    "body_start": 29439718,
+    "body_end": 29441052,
+    "raw_len": 1334,
+    "title": "Using LM Link with Integrations",
+    "prettyName": "Working with LM Link"
+  },
+  {
+    "pageRelUrl": "4_integrations/claude-code.md",
+    "quote": "'",
+    "body_start": 29441226,
+    "body_end": 29443084,
+    "raw_len": 1858,
+    "title": "Claude Code",
+    "prettyName": "Claude Code"
+  },
+  {
+    "pageRelUrl": "4_integrations/codex.md",
+    "quote": "'",
+    "body_start": 29443237,
+    "body_end": 29444591,
+    "raw_len": 1354,
+    "title": "Codex",
+    "prettyName": "Codex"
+  },
+  {
+    "pageRelUrl": "5_lmlink/index.md",
+    "quote": "'",
+    "body_start": 29444837,
+    "body_end": 29446336,
+    "raw_len": 1499,
+    "title": "LM Link",
+    "prettyName": "Introduction"
+  },
+  {
+    "pageRelUrl": "5_lmlink/1_basics/index.md",
+    "quote": "'",
+    "body_start": 29446497,
+    "body_end": 29447039,
+    "raw_len": 542,
+    "title": "Setup a link",
+    "prettyName": "Setup a link"
+  },
+  {
+    "pageRelUrl": "5_lmlink/1_basics/add-device.md",
+    "quote": "'",
+    "body_start": 29447279,
+    "body_end": 29449434,
+    "raw_len": 2155,
+    "title": "Add a Device",
+    "prettyName": "Add a device"
+  },
+  {
+    "pageRelUrl": "5_lmlink/1_basics/preferred-device.md",
+    "quote": "'",
+    "body_start": 29449720,
+    "body_end": 29450526,
+    "raw_len": 806,
+    "title": "Set a preferred device",
+    "prettyName": "Set a preferred device"
+  },
+  {
+    "pageRelUrl": "5_lmlink/1_basics/faq.md",
+    "quote": "\"",
+    "body_start": 29450778,
+    "body_end": 29453919,
+    "raw_len": 3141,
+    "title": "Frequently Asked Questions",
+    "prettyName": "FAQ"
+  }
+]
