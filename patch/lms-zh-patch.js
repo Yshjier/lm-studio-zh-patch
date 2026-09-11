@@ -1,5 +1,5 @@
 /*!
- * LM Studio 中文汉化补丁层 v1.10.1
+ * LM Studio 中文汉化补丁层 v1.10.2
  * - 整段 textNode 精确匹配(同时支持 raw 和 trim)
  * - 元素属性(placeholder/title/aria-label/alt)整段匹配
  * - **递归穿透 ShadowRoot**(react-contexify ContextMenu 默认 useShadowDOM=true)
@@ -8,6 +8,14 @@
  * - MutationObserver 增量监听 + 每 1 秒全 body 兜底扫描
  * - 通过 window.__zhPatchCount 暴露命中计数,window.__zhDictMiss 暴露未命中样本
  * - 通过 window.__zhDebug() 输出诊断信息
+ *
+ * v1.10.2 修复 (第 74 轮 用户报 "小锤子弹出面板的集成还是两行"):
+ *   - 条件②再放宽: 之前"父元素不能有任何 elementNode 子节点"太严格,
+ *     把"图标+文字"平级的菜单项全误杀了 (如 <div class="menu-item"><svg/>集成</div>)
+ *     现在改为: element 子节点只要不含文本内容(纯 svg/img/i 图标), 就允许通过
+ *   - 条件③放宽: 之前一刀切跳过 flex/grid 容器, 但 white-space:nowrap 只控制文本换行,
+ *     不影响 flex/grid 子项排列(flex-wrap 管那个), 不会破坏布局
+ *     → 菜单项(都是 flex) 现在也能正确加 nowrap 了
  *
  * v1.10 升级 (第 72 轮): 精准 inline nowrap 修 "集成" 等 1-3 字中文竖排
  *   - 第 54 轮 / v1.8 两次拒全局 CSS 防换行 (副作用不可控, 铁律)
@@ -80,7 +88,7 @@
   var dict = window.__ZH_DICT__ || {};
   var dictKeys = Object.keys(dict);
   if (!dictKeys.length) { console.warn('[lms-zh] dict empty, abort'); return; }
-  console.info('[lms-zh] patch v1.10.1 loaded, dict size:', dictKeys.length);
+  console.info('[lms-zh] patch v1.10.2 loaded, dict size:', dictKeys.length);
 
   var CJK = /[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]/;
   function hasCJK(s) { return CJK.test(s); }
@@ -204,14 +212,20 @@
     if (!/^[一-鿿＀-￯]{1,3}$/.test(newText)) return;
     var p = node.parentElement;
 
-    // 条件②放宽: 父元素只能含 textNode (允许空白 textNode), 不能含任何 elementNode
-    // React/JSX 渲染常留 "\n  " 空白 textNode, 旧版 childNodes.length === 1 会全挡
+    // 条件②放宽: 父元素里允许有"纯装饰元素"(svg/img/i 等图标),
+    // 只要这些 element 子节点不含文本内容(textContent 为空白), 就不影响。
+    // 之前一刀切禁止所有 element 子节点, 把"图标+文字"平级的菜单项全误杀了
+    // (如小锤子弹出面板的"集成"项: <div class="menu-item"><svg/>集成</div>)
     var kids = p.childNodes;
-    var hasElementKid = false;
+    var hasTextElementKid = false;
     for (var i = 0; i < kids.length; i++) {
-      if (kids[i].nodeType === 1 /* ELEMENT */) { hasElementKid = true; break; }
+      if (kids[i].nodeType === 1 /* ELEMENT */) {
+        // 检查这个 element 子节点自身是否包含文本内容
+        var kidText = (kids[i].textContent || '').trim();
+        if (kidText) { hasTextElementKid = true; break; }
+      }
     }
-    if (hasElementKid) { _miss('has-element-kid', newText, p); return; }
+    if (hasTextElementKid) { _miss('has-text-element-kid', newText, p); return; }
     // 合并后纯文本应与翻译结果一致 (排除兄弟 textNode 拼接的复合文本)
     var joined = '';
     for (var j = 0; j < kids.length; j++) {
@@ -219,9 +233,10 @@
     }
     if (joined.trim() !== newText) { _miss('joined-mismatch', newText + ' vs joined=' + joined.slice(0,20), p); return; }
 
-    // 条件③: flex/grid 容器自身管理布局, 加 nowrap 可能破坏现有布局 → 跳过
-    var d = p.ownerDocument.defaultView.getComputedStyle(p).display;
-    if (d === 'flex' || d === 'inline-flex' || d === 'grid' || d === 'inline-grid') { _miss('flex/grid layout', newText, p); return; }
+    // 条件③放宽: flex/grid 容器也加 nowrap。
+    // white-space:nowrap 只控制文本换行, 不影响 flex/grid 子项排列(flex-wrap 管那个),
+    // 不会破坏布局。之前一刀切跳过 flex/grid, 把菜单项(都是 flex)全漏了。
+    // 仍跳过: table 单元格/块级容器里长文本换行是预期行为, 但我们只命中 1-3 字短词, 风险可控
 
     p.style.whiteSpace = 'nowrap';
     window.__zhNowrapCount = (window.__zhNowrapCount || 0) + 1;
@@ -405,7 +420,7 @@
   // 诊断接口
   window.__zhDebug = function() {
     var info = {
-      version: 'v1.10.1',
+      version: 'v1.10.2',
       dictSize: dictKeys.length,
       patchCount: window.__zhPatchCount || 0,
       nowrapCount: window.__zhNowrapCount || 0,

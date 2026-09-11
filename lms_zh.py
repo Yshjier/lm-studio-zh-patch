@@ -164,6 +164,20 @@ def find_renderer():
     raise SystemExit("未找到 LM Studio 安装目录, 无法继续。")
 
 
+def find_main():
+    """返回主进程 index.js 的路径"""
+    r = find_renderer()
+    # renderer 在 .webpack\renderer, 主进程在 .webpack\main
+    main_path = os.path.join(os.path.dirname(r), "main", "index.js")
+    if os.path.isfile(main_path):
+        return main_path
+    raise SystemExit("未找到主进程 index.js: " + main_path)
+
+
+def main_bak_path():
+    return find_main() + ".bak"
+
+
 def bundle_path():
     return os.path.join(find_renderer(), "main_window.js")
 
@@ -196,6 +210,14 @@ def is_bundle_patched():
         return False
 
 
+def is_tray_patched():
+    """检查主进程托盘菜单补丁是否已打"""
+    try:
+        return "LMS-ZH tray menu patch" in open(find_main(), encoding="utf-8", errors="ignore").read()
+    except Exception:
+        return False
+
+
 def is_patched():
     return is_index_patched() or is_bundle_patched()
 
@@ -218,6 +240,8 @@ def _run(py_script, *args, env_extra=None):
     # 让底层脚本用我们探测到的 renderer
     env.setdefault("LMSZH_BUNDLE", bundle_path())
     env.setdefault("LMSZH_BAK", bak_bundle())
+    # 强制子脚本用 UTF-8 输出, 避免 Windows 默认 GBK 导致乱码
+    env["PYTHONIOENCODING"] = "utf-8"
     r = subprocess.run([sys.executable, py_script, *args], capture_output=True,
                        text=True, encoding="utf-8", errors="replace", env=env, cwd=ROOT)
     out = (r.stdout or "").strip()
@@ -262,13 +286,25 @@ def refresh_pristine():
     log("[*] 适配新版: 用当前安装文件刷新原地备份 ...")
     shutil.copyfile(bundle_path(), bak_bundle())
     shutil.copyfile(index_path(), bak_index())
+    # 主进程备份也刷新
+    try:
+        if os.path.isfile(find_main()):
+            shutil.copyfile(find_main(), main_bak_path())
+    except Exception:
+        pass
     log("    备份已刷新为新版本原始")
 
 
 def restore_pristine():
-    log("[*] 还原原始文件 (main_window.js + index.html) ...")
+    log("[*] 还原原始文件 (main_window.js + index.html + 主进程) ...")
     shutil.copyfile(bak_bundle(), bundle_path())
     shutil.copyfile(bak_index(), index_path())
+    # 还原主进程
+    try:
+        if os.path.isfile(main_bak_path()):
+            shutil.copyfile(main_bak_path(), find_main())
+    except Exception:
+        pass
     log("    已还原为未打补丁状态")
 
 
@@ -310,10 +346,28 @@ def delete_patch_files():
 
 
 def step_native_menu():
-    log("[*] 原生菜单字节补丁 ...")
+    log("[*] 汉化右键菜单 ...")
     rc = _run(os.path.join(ROOT, "patch", "patch_native_menus.py"))
     if rc != 0:
-        log("    [警告] 原生菜单补丁返回非零, 可能该版本锚点变化, 右键菜单仍将英文。")
+        log("    [警告] 右键菜单汉化失败, 部分菜单仍将是英文。")
+
+
+def step_tray_menu():
+    log("[*] 汉化任务栏托盘菜单 ...")
+    # 先确保主进程备份存在
+    try:
+        mp = find_main()
+        mbp = main_bak_path()
+        if not os.path.exists(mbp):
+            shutil.copy2(mp, mbp)
+    except Exception as e:
+        log("    [警告] 主进程备份失败:", e)
+        return
+    env_extra = {'LMSZH_MAIN': find_main()}
+    rc = _run(os.path.join(ROOT, "patch", "patch_tray_menu.py"),
+              env_extra=env_extra)
+    if rc != 0:
+        log("    [警告] 托盘菜单汉化失败, 任务栏右键仍将是英文。")
 
 
 def step_doc_inject():
@@ -365,6 +419,7 @@ def _install_steps():
     restore_pristine()
     log("=== 开始部署 ===")
     step_native_menu()
+    step_tray_menu()
     step_doc_inject()
     copy_patch()
     inject_index()
@@ -430,12 +485,14 @@ def status():
     except Exception:
         print("  index.html      : 读取失败")
     print("  原生菜单补丁   :", "已打" if is_bundle_patched() else "未打")
+    print("  托盘菜单补丁   :", "已打" if is_tray_patched() else "未打")
     try:
         n = len([f for f in os.listdir(os.path.join(ROOT, "patch", "docs_zh")) if f.endswith(".md")])
     except Exception:
         n = 0
     print("  中文文档译文   :", "%d 篇就绪" % n)
-    print("  原始备份(原地) :", "完整" if (os.path.isfile(bak_bundle()) and os.path.isfile(bak_index())) else "缺失")
+    bak_ok = os.path.isfile(bak_bundle()) and os.path.isfile(bak_index()) and os.path.isfile(main_bak_path())
+    print("  原始备份(原地) :", "完整" if bak_ok else "缺失")
     print("=======================================")
     if not (os.path.isfile(os.path.join(r, "lms-zh-patch.js")) and "lms-zh-patch.js" in
             open(index_path(), encoding="utf-8").read()):

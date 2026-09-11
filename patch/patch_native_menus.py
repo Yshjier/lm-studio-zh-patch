@@ -78,19 +78,19 @@ def main():
     new_raw = raw
     changed = []
     for i, (orig, patched) in enumerate(PATCHES):
-        name = ('n()', 'o()')[i] if i < 2 else 'patch%d' % i
+        name = ('右键菜单(组件)', '右键菜单(hook)')[i] if i < 2 else 'patch%d' % i
         if patched in new_raw:
-            print('  [%s] 已 patch 过, 跳过' % name)
+            print('  [%s] 已汉化, 跳过' % name)
             continue
         if orig not in new_raw:
-            print('  [%s] !! 未找到原始函数(版本可能已变化), 请更新脚本' % name)
+            print('  [%s] !! 未找到原始代码 (版本可能已更新), 这部分菜单仍将英文' % name)
             continue
         cnt = new_raw.count(orig)
         if cnt > 1:
             print('  [%s] 注意: 出现 %d 次, 仅替换第一个' % (name, cnt))
         new_raw = new_raw.replace(orig, patched, 1)
         changed.append(name)
-        print('  [%s] 已 patch (%d -> %d chars)' % (name, len(orig), len(patched)))
+        print('  [%s] 汉化完成' % name)
 
     if not changed:
         print('无需改动。')
@@ -99,16 +99,15 @@ def main():
     # 备份(仅首次)
     if not os.path.exists(BACKUP):
         shutil.copy2(BUNDLE, BACKUP)
-        print('已备份原 bundle -> %s' % BACKUP)
+        print('已备份原始文件')
 
     try:
         with open(BUNDLE, 'w', encoding='utf-8') as f:
             f.write(new_raw)
     except PermissionError:
-        sys.exit('错误: 写入 C:\\Program Files 被拒, 需要管理员权限(通过 lms_zh.py 提权运行)。')
+        sys.exit('错误: 写入 C:\\Program Files 被拒, 需要管理员权限')
 
-    print('bundle size: %d -> %d' % (orig_len, len(new_raw)))
-    print('完成, 重启 LM Studio 生效。')
+    print('右键菜单汉化完成')
 
 
 if __name__ == '__main__':
