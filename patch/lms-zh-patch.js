@@ -1,5 +1,5 @@
 /*!
- * LM Studio 中文汉化补丁层 v1.9.2
+ * LM Studio 中文汉化补丁层 v1.10
  * - 整段 textNode 精确匹配(同时支持 raw 和 trim)
  * - 元素属性(placeholder/title/aria-label/alt)整段匹配
  * - **递归穿透 ShadowRoot**(react-contexify ContextMenu 默认 useShadowDOM=true)
@@ -9,11 +9,21 @@
  * - 通过 window.__zhPatchCount 暴露命中计数,window.__zhDictMiss 暴露未命中样本
  * - 通过 window.__zhDebug() 输出诊断信息
  *
+ * v1.10 升级 (第 72 轮): 精准 inline nowrap 修 "集成" 等 1-3 字中文竖排
+ *   - 第 54 轮 / v1.8 两次拒全局 CSS 防换行 (副作用不可控, 铁律)
+ *   - 第 72 轮用户改口 "接受改样式了", 改用**精准 inline 方式**:
+ *     仅当 textNode 翻译结果为 1-3 字中文 且 textNode 是父元素唯一子节点
+ *     且父元素不是 flex/grid 布局时, 给父元素加 inline
+ *     `style="white-space:nowrap"`, 不靠 class 猜容器
+ *   - 副作用范围 = 命中的那个父元素, 不会扩散; 已有 nowrap 的无影响
+ *   - 紧急关停: 浏览器控制台 `window.__ZH_NO_NOWRAP__ = true` 后刷新页面
+ *   - 诊断: `window.__zhNowrapCount` 计数; `__zhDebug()` 看 wrap 命中数
+ *
  * v1.6 升级: [已于第 54 轮按用户要求移除]
  *   - 曾移植翻译模块的全局 CSS 防换行 (white-space:nowrap), 用于修 "集成" 竖排
  *   - **已移除**: 全局 CSS 会无差别影响所有匹配容器, 副作用不可控
- *     → 用户决策「宁可保留 '集成' 两行, 也不要全局样式副作用」
- *     → 遵守铁律: 最坏必须是「没修好」, 绝不能是「样式大改让用户不认」
+ *     → 第 72 轮改用精准 inline 方式重新引入, 副作用收敛到单元素
+ *     → 仍遵守铁律: 最坏必须是「没修好」, 绝不能是「样式大改让用户不认」
  *
  * v1.7 升级: (保留)
  *   - TEMPLATE_RULES: 模板字符串前缀匹配 (变量保留)
@@ -44,7 +54,9 @@
  *     整段含 CJK 会被旧逻辑跳过,导致前缀 "Delete folder" 漏翻。
  *     现在先尝试模板匹配,命中即翻译前缀并保留变量,不受 CJK 影响。
  *
- * 已知限制: 侧栏 "集成" 等两字中文在窄容器里可能仍竖排成两行 (不修, 见 v1.6 说明)
+ * 已知限制: 4 字及以上中文如 "加载模型" / "插件市场" 在极窄容器仍可能竖排,
+ *           词典换更短词可缓解 (e.g. "加载模型" → "加载", "插件市场" → "插件"),
+ *           这是词典范畴不是补丁范畴, 留给后续按需补
  */
 (function () {
   'use strict';
@@ -60,7 +72,7 @@
   var dict = window.__ZH_DICT__ || {};
   var dictKeys = Object.keys(dict);
   if (!dictKeys.length) { console.warn('[lms-zh] dict empty, abort'); return; }
-  console.info('[lms-zh] patch v1.9 loaded, dict size:', dictKeys.length);
+  console.info('[lms-zh] patch v1.10 loaded, dict size:', dictKeys.length);
 
   var CJK = /[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]/;
   function hasCJK(s) { return CJK.test(s); }
@@ -159,6 +171,24 @@
     }
   }
 
+  // v1.10 精准 inline nowrap 修 "集成" / "搜索" 等 1-3 字中文在窄容器竖排
+  // 副作用范围 = 该父元素, 不靠 class 猜容器, 不会扩散
+  // 紧急关停: 控制台 `window.__ZH_NO_NOWRAP__ = true` 后刷新页面
+  function markCnShortNoWrap(node, newText) {
+    if (window.__ZH_NO_NOWRAP__) return;
+    if (!node || !node.parentElement) return;
+    // 仅 1-3 字中文 (高发竖排词组范围: 集成/搜索/设置/插件/加载中...)
+    if (!/^[一-鿿＀-￯]{1,3}$/.test(newText)) return;
+    var p = node.parentElement;
+    // textNode 必须是父元素唯一子节点, 避免影响兄弟内容
+    if (p.childNodes.length !== 1) return;
+    // flex/grid 容器自身管理布局, 加 nowrap 可能破坏现有布局 → 跳过
+    var d = p.ownerDocument.defaultView.getComputedStyle(p).display;
+    if (d === 'flex' || d === 'inline-flex' || d === 'grid' || d === 'inline-grid') return;
+    p.style.whiteSpace = 'nowrap';
+    window.__zhNowrapCount = (window.__zhNowrapCount || 0) + 1;
+  }
+
   function translateTextNode(node) {
     if (!node) return;
     var v = node.nodeValue;
@@ -168,7 +198,11 @@
     if (!r && !isPlainEnglish(v)) return;
     if (!r) { r = dict[v] || dict[v.trim()]; }
     if (r && r !== v) {
-      try { node.nodeValue = r; window.__zhPatchCount = (window.__zhPatchCount||0)+1; } catch(e){}
+      try {
+        node.nodeValue = r;
+        window.__zhPatchCount = (window.__zhPatchCount||0)+1;
+        markCnShortNoWrap(node, r);  // v1.10
+      } catch(e){}
     }
   }
 
@@ -333,9 +367,11 @@
   // 诊断接口
   window.__zhDebug = function() {
     var info = {
-      version: 'v1.9.2',
+      version: 'v1.10',
       dictSize: dictKeys.length,
       patchCount: window.__zhPatchCount || 0,
+      nowrapCount: window.__zhNowrapCount || 0,
+      nowrapKilled: !!window.__ZH_NO_NOWRAP__,
       shadowRoots: [],
       shadowTexts: [],
       missedSamples: []
