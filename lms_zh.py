@@ -80,7 +80,7 @@ def require_admin(action=None):
     """
     if is_admin():
         return
-    log("[提权] 需要管理员权限, 正在请求 UAC ...")
+    log("[*] 需要管理员权限, 正在请求 UAC ...")
     args = [__file__]
     if action:
         args.append(action)
@@ -277,7 +277,7 @@ def copy_patch():
     for src in (ZH_JS, PATCH_JS):
         dst = os.path.join(find_renderer(), os.path.basename(src))
         shutil.copyfile(src, dst)
-        log("    拷贝 %s (%d bytes)" % (os.path.basename(dst), os.path.getsize(dst)))
+        log("    已拷贝 %s (%d bytes)" % (os.path.basename(dst), os.path.getsize(dst)))
 
 
 def inject_index():
@@ -344,7 +344,11 @@ def step_scan_report():
 
 
 # ---------------- 命令 ----------------
-def install():
+def _install_steps():
+    """install 流程本身 (杀进程 + 备份 + 部署), 不包含 _wait_exit。
+    拆出来是为了让 update() 在末尾跑 step_scan_report() 后再统一暂停,
+    否则 install() 内的 _wait_exit() 会卡在漏翻报告之前, 提示词错位。
+    """
     require_admin("install")
     find_renderer()
     kill_lmstudio()
@@ -365,6 +369,10 @@ def install():
     copy_patch()
     inject_index()
     log("=== 部署完成 ✅ 重启 LM Studio 生效 ===")
+
+
+def install():
+    _install_steps()
     _wait_exit()
 
 
@@ -399,8 +407,8 @@ def update():
                 refresh_pristine()
         except Exception:
             pass
-    install()
-    step_scan_report()
+    _install_steps()   # 不含 _wait_exit, 让 update 末尾统一停
+    step_scan_report() # 漏翻报告跑完再统一暂停
     _wait_exit()
 
 

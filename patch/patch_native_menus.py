@@ -69,7 +69,7 @@ PATCHES.append((
 
 def main():
     if not os.path.isfile(BUNDLE):
-        sys.exit('未找到 bundle: ' + BUNDLE)
+        sys.exit('错误: 未找到 bundle: ' + BUNDLE)
 
     with open(BUNDLE, 'r', encoding='utf-8', errors='ignore') as f:
         raw = f.read()
@@ -105,8 +105,7 @@ def main():
         with open(BUNDLE, 'w', encoding='utf-8') as f:
             f.write(new_raw)
     except PermissionError:
-        sys.exit('Permission denied: 需要管理员权限写入 C:\\Program Files。'
-                 '请以管理员身份运行本脚本(或由 _apply_all.py 提权调用)。')
+        sys.exit('错误: 写入 C:\\Program Files 被拒, 需要管理员权限(通过 lms_zh.py 提权运行)。')
 
     print('bundle size: %d -> %d' % (orig_len, len(new_raw)))
     print('完成, 重启 LM Studio 生效。')

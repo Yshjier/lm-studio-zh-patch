@@ -64,7 +64,7 @@ def main():
     raw = load_raw()
     hits = [(m.start(), m.group(1), m.group(2)) for m in KEY_PAT.finditer(raw)]
     if not hits:
-        print('NO HITS'); return
+        print('无命中'); return
     blocks = cluster(hits)
 
     # ---- 英文块判定 (三条件, 缺一不可) ----
@@ -84,7 +84,7 @@ def main():
         sp = sum(len(STRONG.findall(v)) for v in vals) / len(vals)
         if dr >= 0.15 or sp >= 0.4:
             en_blocks.append(b)
-    print(f'命中 {len(hits)} 条 / {len(blocks)} 块; 判定为英文的块: {len(en_blocks)}')
+    print(f'[命中] {len(hits)} 条 / {len(blocks)} 块; 判定为英文的块: {len(en_blocks)}')
     for b in en_blocks:
         print(f'   块 pos={b[0][0]}~{b[-1][0]} keys={len(b):4d}')
 
@@ -108,11 +108,11 @@ def main():
     miss = {k: v for k, v in en.items() if v not in d}
     json.dump(miss, open(os.path.join(OUT_DIR, 'en_i18n_missing.json'), 'w', encoding='utf-8'),
               ensure_ascii=False, indent=1)
-    print(f'英文块键数 {len(en)}, 字典未覆盖 {len(miss)}')
+    print(f'[合计] 英文块键数 {len(en)}, 字典未覆盖 {len(miss)}')
 
     if '--dump-missing' in sys.argv:
         for k in sorted(miss):
-            print('  ', k, '=', json.dumps(miss[k], ensure_ascii=False)[:220])
+            print('  ', k, '=', json.dumps(miss[k], ensure_ascii=False)[:220])  # 漏翻样本(供翻译补全)
 
 
 if __name__ == '__main__':

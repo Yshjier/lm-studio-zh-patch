@@ -144,27 +144,27 @@ def cmd_report():
         if os.path.exists(zh):
             t = open(zh, encoding='utf-8', newline='').read()
             t = t.replace('\r\n', '\n').replace('\r', '\n')
-            state = 'ZH' if cur == t else 'EN(zh ready)'
+            state = '已翻' if cur == t else 'EN(译文就绪)'
             if cur == t:
                 have += 1
         else:
-            state = 'EN'
-        if state != 'EN':
+            state = '未翻'
+        if state != '未翻':
             log(f'  {state:<12} {url}')
-    log(f'total docs={len(docs)}  already-zh={have}')
+    log(f'共 {len(docs)} 篇; 已为中文: {have}')
 
 
 def cmd_apply():
     if not os.path.exists(BAK):
         shutil.copy2(BUNDLE, BAK)
-        log('[backup] created', BAK, os.path.getsize(BAK))
+        log('[备份] 已建', BAK, os.path.getsize(BAK))
     else:
-        log('[backup] exists', BAK, os.path.getsize(BAK))
+        log('[备份] 存在', BAK, os.path.getsize(BAK))
 
     src = open(BUNDLE, encoding='utf-8', newline='').read()
     before_len = len(src.encode('utf-8'))
     docs = locate_docs(src)
-    log(f'located {len(docs)} docs in bundle')
+    log(f'在 bundle 中定位到 {len(docs)} 篇文档')
 
     plan = []
     skip = 0
@@ -180,14 +180,14 @@ def cmd_apply():
             continue
         plan.append((a, b, esc(text, q), url))
 
-    log(f'to replace: {len(plan)}   (no translation: {skip})')
+    log(f'待替换: {len(plan)}   缺译文: {skip}')
     out = src
     for a, b, body, url in sorted(plan, key=lambda x: -x[0]):
         out = out[:a] + body + out[b:]
-        log(f'  injected {url}  ({b - a} -> {len(body)} chars)')
+        log(f'  已注入 {url}  ({b - a} -> {len(body)} chars)')
 
     if not plan:
-        log('nothing to do')
+        log('无可操作')
         return
 
     tmp = BUNDLE + '.zhcheck.js'
@@ -197,23 +197,23 @@ def cmd_apply():
     import subprocess
     r = subprocess.run(['node', '--check', tmp], capture_output=True, text=True, shell=False)
     if r.returncode != 0:
-        log('[FATAL] node --check failed on tmp, abort.')
+        log('[致命] node --check 校验失败, 中止。')
         log(r.stdout)
         log(r.stderr)
         os.remove(tmp)
         sys.exit(2)
-    log('[check] node --check OK')
+    log('[检查] node --check 通过')
     shutil.move(tmp, BUNDLE)
-    log(f'[done] bundle {before_len} -> {os.path.getsize(BUNDLE)} bytes')
-    log('[done] time', time.strftime('%Y-%m-%d %H:%M:%S'))
+    log(f'[完成] bundle {before_len} -> {os.path.getsize(BUNDLE)} bytes')
+    log('[完成] 时间', time.strftime('%Y-%m-%d %H:%M:%S'))
 
 
 def cmd_rollback():
     if not os.path.exists(BAK):
-        log('[ERROR] backup not found', BAK)
+        log('[错误] 未找到备份', BAK)
         sys.exit(1)
     shutil.copy2(BAK, BUNDLE)
-    log('[rollback] restored', BAK, '->', BUNDLE, os.path.getsize(BUNDLE))
+    log('[回滚] 已还原', BAK, '->', BUNDLE, os.path.getsize(BUNDLE))
 
 
 if __name__ == '__main__':
@@ -226,5 +226,5 @@ if __name__ == '__main__':
     elif cmd == 'report':
         cmd_report()
     else:
-        log('unknown cmd', cmd)
+        log('未知命令', cmd)
         sys.exit(1)

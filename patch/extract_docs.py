@@ -15,7 +15,7 @@ OUT = os.path.join(ROOT, 'patch', 'docs_src')
 os.makedirs(OUT, exist_ok=True)
 
 src = open(BUNDLE, encoding='utf-8', newline='').read()
-print('bundle chars:', len(src))
+print('bundle 字符数:', len(src))
 
 
 def find_str_end(s, i):
@@ -84,7 +84,7 @@ for um in re.finditer(r'pageRelUrl:"([^"]+)"', src):
                     break
         k = win.rfind('content:', 0, k)
     if not found:
-        print('MISS locate:', url)
+        print('未定位到:', url)
         continue
     quote, bstart, bend = found
     used_urls.add(url)
@@ -115,9 +115,9 @@ with open(os.path.join(ROOT, 'patch', 'docs_manifest.json'), 'w', encoding='utf-
     json.dump(entries, f, ensure_ascii=False, indent=2)
 
 tot = sum(e['raw_len'] for e in entries)
-print(f'entries: {len(entries)}   total raw md chars: {tot} (~{tot/1024:.0f} KB)')
+print(f'条目: {len(entries)}   原始 md 总字符: {tot} (~{tot/1024:.0f} KB)')
 sec = {}
 for e in entries:
     k = e['pageRelUrl'].split('/')[0]
     sec[k] = sec.get(k, 0) + 1
-print('sections:', sec)
+print('章节数:', sec)
