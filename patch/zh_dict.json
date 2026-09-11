@@ -4596,6 +4596,6 @@
  "Moreover, LM Link runs entirely in userspace and does ": "此外,LM Link 完全在用户态运行,", 
  "not change": "不会", 
  " anything globally on your device, such as networking settings or firewall settings.": " 您设备上的任何全局设置,例如网络设置或防火墙设置。", 
- "Yes. Any model in your LM Link network can be used as if it is local. Any tool that already connects to your local LM Studio server will be able to use remote models as well, just by pointing to `": "可以。您的 LM Link 网络中的任何模型都可以像本地模型一样使用。任何已连接到您本地 LM Studio 服务器的工具都可以使用远程模型,只需像往常一样指向 `", 
- " as usual.": " 即可。"
+ " as usual.": " 即可。", 
+ "Yes. Any model in your LM Link network can be used as if it is local. Any tool that already connects to your local LM Studio server will be able to use remote models as well, just by pointing to ": "可以。您的 LM Link 网络中的任何模型都可以像本地模型一样使用。任何已连接到您本地 LM Studio 服务器的工具都可以使用远程模型,只需像往常一样指向 "
 }
