@@ -11,12 +11,7 @@
    - 一键安装/卸载方法
    - 已知限制与兼容性说明
 
-2. **[CHANGELOG.md](CHANGELOG.md)**（15 分钟）
-   - 51 轮迭代完整记录
-   - 4 个阶段：项目奠基 / 精度提升 / 文档汉化 / 全量扫描
-   - 字典条目演进（0 → 4193）
-
-3. **[HANDS_ON.md](HANDS_ON.md)**（30 分钟，需要时再读）
+2. **[HANDS_ON.md](HANDS_ON.md)**（30 分钟，需要时再读）
    - 字典维护实操
    - LM Studio 升级迁移流程
    - 调试遗漏问题
@@ -36,10 +31,8 @@
 LM Studio Chinese/
 │
 ├── 📄 README.md                ← 项目总览（先看这个）
-├── 📄 CHANGELOG.md             ← 51 轮迭代记录
 ├── 📄 HANDS_ON.md              ← 开发者指南
 ├── 📄 HANDS_ON_EXPERIENCE.md   ← 经验总结
-├── 📄 LM_Studio汉化深度分析报告.md  ← 第 1 轮分析报告
 │
 ├── 🔧 patch/                   ← 补丁与部署脚本
 │   ├── zh_dict.json            ← 4193 字典源
@@ -90,8 +83,6 @@ LM Studio Chinese/
 │   ├── main_index.js.bak       ← 主进程 bundle 原始备份（25MB）
 │   ├── index.html.bak          ← 注入前原版
 │   └── index.html.translate.bak ← 含翻译模块注入的 index.html（回滚用）
-│
-├── 📋 logs/                    ← 部署日志
 │
 └── 🧠 .workbuddy/memory/       ← 项目长期笔记
     ├── 2026-09-09.md           ← 第 1-29 轮日志

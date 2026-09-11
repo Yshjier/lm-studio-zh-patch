@@ -117,7 +117,6 @@ python apply_docs_zh.py           # 注入
 ```
 LM Studio Chinese/
 ├── README.md                       # 本文档
-├── CHANGELOG.md                    # 迭代记录
 ├── LICENSE                         # MIT
 ├── .gitignore                      # 忽略 backups/ logs/ *.bak / .workbuddy 等
 ├── lms_zh.py                       # ★ 单文件管理工具（安装/卸载/适配新版/状态）
