@@ -1,0 +1,22 @@
+name: 功能请求 / 新增词条
+description: 建议新增某个未覆盖的界面文本翻译，或改进汉化补丁能力
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: 想要什么
+      description: 希望补充哪类翻译，或改进补丁的什么能力？
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: 为什么需要
+      description: 使用场景 / 痛点
+  - type: textarea
+    id: how
+    attributes:
+      label: 建议方案
+      description: 如果你已有想法（例如某条字典条目、某条模板规则），写在这里

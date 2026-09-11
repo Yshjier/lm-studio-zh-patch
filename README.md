@@ -160,6 +160,10 @@ LM Studio Chinese/
 ├── CHANGELOG.md                    # 迭代记录
 ├── LICENSE                         # MIT
 ├── .gitignore                      # 忽略 backups/ logs/ *.bak / .workbuddy 等
+├── .github/                         # GitHub 标准配置
+│   ├── ISSUE_TEMPLATE/              # Bug 报告 / 功能请求模板
+│   ├── PULL_REQUEST_TEMPLATE.md     # PR 模板
+│   └── workflows/ci.yml             # CI：编译校验 + 字典/补丁语法 parity
 │
 ├── docs/                           # 项目文档
 │   ├── INSTALL.md                  # 安装与启用说明

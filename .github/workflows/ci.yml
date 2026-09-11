@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Compile Python scripts
+        run: python -m py_compile patch/*.py analysis/*.py
+
+      - name: Syntax check patch JS
+        run: node --check patch/lms-zh-patch.js
+
+      - name: Validate dictionary JSON
+        run: python -c "import json; d=json.load(open('patch/zh_dict.json', encoding='utf-8')); print('zh_dict.json OK, entries =', len(d))"
+
+      - name: Check dict/js parity
+        run: python -c "import json; d=json.load(open('patch/zh_dict.json', encoding='utf-8')); j=open('patch/zh_dict.js', encoding='utf-8').read(); assert j.startswith('window.__ZH_DICT__='), 'bad zh_dict.js format'; obj=json.loads(j[len('window.__ZH_DICT__='):].rstrip().rstrip(';')); assert set(obj.keys())==set(d.keys()), 'zh_dict.js 与 zh_dict.json 的 key 不一致，请重新运行 gen_dict_js.py'; print('zh_dict.js parity OK, entries =', len(obj))"

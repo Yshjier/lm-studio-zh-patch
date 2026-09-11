@@ -1,0 +1,54 @@
+name: Bug 报告（汉化失效 / 功能异常）
+description: 报告某个界面文本未被汉化，或汉化后导致功能/样式异常
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请先确认：重启 LM Studio 后问题仍然存在；且非「输入框右键菜单 / 系统托盘菜单 / 运行时动态内容」这三类已知不可汉化项
+        （详见 README 的「已知限制」）。
+  - type: textarea
+    id: where
+    attributes:
+      label: 问题位置
+      description: 哪个页面 / 哪个弹窗 / 哪个按钮出现了问题？最好附截图。
+      placeholder: 例如：删除对话时的确认弹窗标题仍是英文 "Delete 未命名聊天"
+    validations:
+      required: true
+  - type: textarea
+    id: expect
+    attributes:
+      label: 期望行为
+      description: 你期望显示成什么中文？
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际行为
+      description: 现在实际显示的内容（含英文原文）
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: LM Studio 版本
+      description: 帮助 → 关于 里看到的版本号
+      placeholder: "0.4.24+1"
+  - type: dropdown
+    id: type
+    attributes:
+      label: 问题类型
+      options:
+        - 某段 UI 文本漏翻（应为中文却显示英文）
+        - 汉化后样式错乱 / 布局异常
+        - 汉化后功能失效（按钮点了没反应等）
+        - 其它
+    validations:
+      required: true
+  - type: textarea
+    id: extra
+    attributes:
+      label: 补充信息
+      description: 任何有助于复现的信息，如操作步骤、控制台报错等
