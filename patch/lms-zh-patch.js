@@ -1,5 +1,5 @@
 /*!
- * LM Studio 中文汉化补丁层 v1.10
+ * LM Studio 中文汉化补丁层 v1.10.1
  * - 整段 textNode 精确匹配(同时支持 raw 和 trim)
  * - 元素属性(placeholder/title/aria-label/alt)整段匹配
  * - **递归穿透 ShadowRoot**(react-contexify ContextMenu 默认 useShadowDOM=true)
@@ -12,12 +12,20 @@
  * v1.10 升级 (第 72 轮): 精准 inline nowrap 修 "集成" 等 1-3 字中文竖排
  *   - 第 54 轮 / v1.8 两次拒全局 CSS 防换行 (副作用不可控, 铁律)
  *   - 第 72 轮用户改口 "接受改样式了", 改用**精准 inline 方式**:
- *     仅当 textNode 翻译结果为 1-3 字中文 且 textNode 是父元素唯一子节点
+ *     仅当 textNode 翻译结果为 1-3 字中文 且 父元素只含 textNode(允许空白, 不能有 element)
  *     且父元素不是 flex/grid 布局时, 给父元素加 inline
  *     `style="white-space:nowrap"`, 不靠 class 猜容器
  *   - 副作用范围 = 命中的那个父元素, 不会扩散; 已有 nowrap 的无影响
  *   - 紧急关停: 浏览器控制台 `window.__ZH_NO_NOWRAP__ = true` 后刷新页面
- *   - 诊断: `window.__zhNowrapCount` 计数; `__zhDebug()` 看 wrap 命中数
+ *   - 诊断: `window.__zhNowrapCount` 计数; `__zhDebug().nowrapMisses` 看卡条件样本
+ *
+ * v1.10.1 修复 (第 73 轮 用户报 "没变化还是两行"):
+ *   - 放宽条件②: React/JSX 渲染常留 "\n  " 空白 textNode, 旧版
+ *     childNodes.length === 1 把所有 React 元素全挡掉 → __zhNowrapCount 永远 0
+ *   - v1.10.1 改为「父元素只含 textNode(允许空白), 不能含任何 elementNode」 +
+ *     合并后纯文本 == 翻译结果
+ *   - 加诊断 window.__zhNoWrapMisses 记录卡 ②/③/④ 的样本前 30 字 + 父级 class,
+ *     控制台 __zhDebug().nowrapMisses 可查
  *
  * v1.6 升级: [已于第 54 轮按用户要求移除]
  *   - 曾移植翻译模块的全局 CSS 防换行 (white-space:nowrap), 用于修 "集成" 竖排
@@ -72,7 +80,7 @@
   var dict = window.__ZH_DICT__ || {};
   var dictKeys = Object.keys(dict);
   if (!dictKeys.length) { console.warn('[lms-zh] dict empty, abort'); return; }
-  console.info('[lms-zh] patch v1.10 loaded, dict size:', dictKeys.length);
+  console.info('[lms-zh] patch v1.10.1 loaded, dict size:', dictKeys.length);
 
   var CJK = /[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]/;
   function hasCJK(s) { return CJK.test(s); }
@@ -171,6 +179,21 @@
     }
   }
 
+  // 调试: 卡在条件②/③/④ 但已翻译的样本, 控制台 __zhDebug() 查看
+  window.__zhNoWrapMisses = window.__zhNoWrapMisses || [];
+  function _miss(reason, txt, p) {
+    if (window.__zhNoWrapMisses.length < 30) {
+      window.__zhNoWrapMisses.push({
+        reason: reason,
+        text: txt,
+        tag: p && p.tagName,
+        kids: p ? p.childNodes.length : 0,
+        // 取一个父级 class 串便于辨识, 仅前 60 字避免冗长
+        ctx: p ? (p.parentElement ? (p.parentElement.className || '').toString().slice(0,60) : '') : ''
+      });
+    }
+  }
+
   // v1.10 精准 inline nowrap 修 "集成" / "搜索" 等 1-3 字中文在窄容器竖排
   // 副作用范围 = 该父元素, 不靠 class 猜容器, 不会扩散
   // 紧急关停: 控制台 `window.__ZH_NO_NOWRAP__ = true` 后刷新页面
@@ -180,11 +203,26 @@
     // 仅 1-3 字中文 (高发竖排词组范围: 集成/搜索/设置/插件/加载中...)
     if (!/^[一-鿿＀-￯]{1,3}$/.test(newText)) return;
     var p = node.parentElement;
-    // textNode 必须是父元素唯一子节点, 避免影响兄弟内容
-    if (p.childNodes.length !== 1) return;
-    // flex/grid 容器自身管理布局, 加 nowrap 可能破坏现有布局 → 跳过
+
+    // 条件②放宽: 父元素只能含 textNode (允许空白 textNode), 不能含任何 elementNode
+    // React/JSX 渲染常留 "\n  " 空白 textNode, 旧版 childNodes.length === 1 会全挡
+    var kids = p.childNodes;
+    var hasElementKid = false;
+    for (var i = 0; i < kids.length; i++) {
+      if (kids[i].nodeType === 1 /* ELEMENT */) { hasElementKid = true; break; }
+    }
+    if (hasElementKid) { _miss('has-element-kid', newText, p); return; }
+    // 合并后纯文本应与翻译结果一致 (排除兄弟 textNode 拼接的复合文本)
+    var joined = '';
+    for (var j = 0; j < kids.length; j++) {
+      if (kids[j].nodeType === 3) joined += kids[j].nodeValue;
+    }
+    if (joined.trim() !== newText) { _miss('joined-mismatch', newText + ' vs joined=' + joined.slice(0,20), p); return; }
+
+    // 条件③: flex/grid 容器自身管理布局, 加 nowrap 可能破坏现有布局 → 跳过
     var d = p.ownerDocument.defaultView.getComputedStyle(p).display;
-    if (d === 'flex' || d === 'inline-flex' || d === 'grid' || d === 'inline-grid') return;
+    if (d === 'flex' || d === 'inline-flex' || d === 'grid' || d === 'inline-grid') { _miss('flex/grid layout', newText, p); return; }
+
     p.style.whiteSpace = 'nowrap';
     window.__zhNowrapCount = (window.__zhNowrapCount || 0) + 1;
   }
@@ -367,14 +405,15 @@
   // 诊断接口
   window.__zhDebug = function() {
     var info = {
-      version: 'v1.10',
+      version: 'v1.10.1',
       dictSize: dictKeys.length,
       patchCount: window.__zhPatchCount || 0,
       nowrapCount: window.__zhNowrapCount || 0,
       nowrapKilled: !!window.__ZH_NO_NOWRAP__,
       shadowRoots: [],
       shadowTexts: [],
-      missedSamples: []
+      missedSamples: [],
+      nowrapMisses: (window.__zhNoWrapMisses || []).slice(0, 30)
     };
     var roots = [];
     collectRoots(document.documentElement, roots);
