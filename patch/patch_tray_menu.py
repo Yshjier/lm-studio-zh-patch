@@ -48,6 +48,7 @@ INJECT_JS = r'''// === LMS-ZH tray menu patch ===
 (function() {
   try {
     const { Menu } = require('electron');
+
     const origBuild = Menu.buildFromTemplate;
     if (!origBuild || Menu.__zhPatched) return;
     Menu.__zhPatched = true;
@@ -56,6 +57,7 @@ INJECT_JS = r'''// === LMS-ZH tray menu patch ===
       if (!label || typeof label !== 'string') return label;
       const dict = {
         'Minimize to Tray': '最小化到托盘',
+        'Open LM Studio': '打开 LM Studio',
         'Stop Server': '停止服务器',
         'Copy LLM Server Base URL': '复制 LLM 服务器地址',
         'Load Model': '加载模型',
@@ -67,6 +69,10 @@ INJECT_JS = r'''// === LMS-ZH tray menu patch ===
       if (dict[label]) return dict[label];
       let m = label.match(/^LM Studio Server: Running on port (\d+)$/);
       if (m) return 'LM Studio 服务器：端口 ' + m[1] + ' 运行中';
+      m = label.match(/^LM Studio Server: Not Running$/);
+      if (m) return 'LM Studio 服务器：未运行';
+      m = label.match(/^Start Server on Port (\d+)\.\.\.$/);
+      if (m) return '在端口 ' + m[1] + ' 启动服务器...';
       m = label.match(/^(\d+) Model\(s\) Loaded$/);
       if (m) return '已加载 ' + m[1] + ' 个模型';
       return label;
