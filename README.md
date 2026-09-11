@@ -6,97 +6,57 @@
 
 | 项目 | 数字 |
 |---|---|
-| 字典条目 | **4193 条**（覆盖侧栏、菜单、按钮、状态、属性等所有 UI 文本） |
+| 字典条目 | **4578 条**（覆盖侧栏、菜单、按钮、状态、属性等所有 UI 文本） |
 | 开发者文档 | **156 / 156 篇**（`0_app` 24 / `1_developer` 32 / `1_python` 22 / `2_typescript` 43 / `3_cli` 26 / `4_integrations` 4 / `5_lmlink` 5） |
 | 字典补丁层 | v1.7（DOM 文本/属性精确匹配 + ShadowRoot 穿透 + 模板字符串前缀 + CSS 防换行） |
 | 适用版本 | LM Studio **0.4.24+1**（Electron 框架，2026-09 验证） |
 | 安装目录改动 | 3 个文件：`zh_dict.js` / `lms-zh-patch.js` / `main_window.js`（文档注入）+ `index.html` 注入 2 个 `<script>` |
 | 部署方式 | **零补丁式**——不动 bundle 字节级布局（仅替换 156 个 content 字符串体） |
 
-## 快速安装
+## 一键管理工具 (推荐)
 
-### 方法一：一键部署（推荐）
+所有安装 / 卸载 / 适配新版操作都收进一个自提权、带菜单的单文件工具，覆盖不变（字典补丁 + 156 篇文档注入 + 原生菜单字节补丁）。
 
-已在本机编译过字典 + 文档汉化产物（即 `patch/zh_dict.js`、`patch/lms-zh-patch.js`、`patch/docs_zh/`），可一键部署到 LM Studio 安装目录。
+**前置**：
+- Windows 10/11，LM Studio 已安装（默认 `C:\Program Files\LM Studio`，其他盘/自定义路径会自动探测，也可设环境变量 `LM_STUDIO_RENDERER`）
+- 对该目录有管理员权限（工具在需要时自动弹 UAC）
 
-**前置条件**：
-- Windows 10/11
-- LM Studio 已安装在默认路径 `C:\Program Files\LM Studio`
-- 拥有该目录的**管理员权限**（UAC 会弹窗）
-
-**步骤**：
+**用法**：
 
 ```powershell
-# 1. 关闭 LM Studio（必须完全退出，包括托盘残留进程）
-taskkill /F /IM "LM Studio.exe"
-
-# 2. 部署字典补丁（UAC 提权自动复制 2 个文件）
-powershell -Command "Start-Process -FilePath 'D:/Workspace/LM Studio Chinese\patch\_deploy_dict2.bat' -Verb RunAs -Wait"
-cat $env:TEMP\lmszh_dict2.log
-
-# 3. 注入文档汉化（替换 main_window.js 内 156 个 content 字符串体）
-powershell -Command "Start-Process -FilePath 'D:/Workspace/LM Studio Chinese\patch\_apply_docs.bat' -Verb RunAs -Wait"
-cat $env:TEMP\lmszh_docs_apply.log
-
-# 4. 启动 LM Studio 验证
+# 双击 lms_zh.bat  -> 出现菜单，选 1/2/3/4
+# 或命令行：
+python lms_zh.py install     # 安装 / 重装（幂等，重复运行安全）
+python lms_zh.py uninstall   # 卸载，还原官方英文原版
+python lms_zh.py update      # LM Studio 升级后：重抽文档 + 刷新备份 + 重新部署 + 漏翻报告
+python lms_zh.py status      # 查看当前部署状态（不需管理员）
 ```
 
-部署成功的标志：
-- `C:\Program Files\LM Studio\resources\app\.webpack\renderer\zh_dict.js` 存在（~196KB）
-- `C:\Program Files\LM Studio\resources\app\.webpack\renderer\lms-zh-patch.js` 存在（~11KB）
-- `index.html` 末尾的 `</head>` 前出现 `<script src="zh_dict.js"></script>` 和 `<script src="lms-zh-patch.js"></script>`
-- `main_window.js` 已注入文档汉化（仍可通过 `python patch\apply_docs_zh.py report` 看到 `already-zh=156`）
+**菜单说明**：
 
-### 方法二：从零编译（首次 / 跨机部署）
+| 选项 | 作用 |
+|---|---|
+| 1) 安装 / 重装 | 杀进程 -> 从原始备份还原 -> 打原生菜单补丁 -> 注入 156 篇文档 -> 拷贝字典+补丁 -> 注入 index.html。幂等，不怕中断 |
+| 2) 卸载 | 还原 `main_window.js`/`index.html` 原始备份 + 删除 2 个补丁文件，干净回到官方英文 |
+| 3) 适配新版 | LM Studio 自动升级覆盖了 bundle 后，重抽开发者文档、刷新原始备份、重新部署，并扫描新版漏翻键 |
+| 4) 查看状态 | 报告补丁文件、注入状态、原生菜单、备份完整性 |
 
-适用于：
-- 第一次在这台机器部署
-- 跨机迁移到其他 Windows 机器
-- LM Studio 升级后想重新汉化
-
-**前置**：同方法一
-
-**步骤**：
-
-```powershell
-# 1. 生成字典 JS（从 JSON 编译）
-cd "D:/Workspace/LM Studio Chinese\patch"
-python gen_dict_js.py
-
-# 2. 校验文档汉化结构（如确认新加的 doc 译文）
-python validate_docs.py             # 校验结构（围栏/链接/标题/图片）
-python check_code_blocks.py         # 校验代码块逐字节一致
-
-# 3. 抽取英文文档（仅在 LM Studio 升级后做）
-#    extract_docs.py 会从 main_window.js 抽出 156 篇英文到 docs_src/,
-#    再人工逐篇翻译到 docs_zh/。docs_src/ 仅为翻译过程的中转产物,
-#    部署只依赖 docs_zh/。
-#    1) 先备份当前 bundle: copy main_window.js backups\main_window.predocs.bak
-#    2) python extract_docs.py    # 重新抽出新版本英文到 docs_src/
-#    3) 人工逐篇翻译到 docs_zh/<name>.md（与新版本英文 diff 同步）
-#    4) python apply_docs_zh.py report   # 看缺哪些
-
-# 4. 部署到安装目录（taskkill /F /IM "LM Studio.exe" 后）
-python apply_docs_zh.py             # 默认 apply：注入所有 docs_zh/*.md
-python apply_docs_zh.py report      # 只打印状态，不改文件
-python apply_docs_zh.py rollback    # 一键还原（前提：backups\main_window.predocs.bak 存在）
-```
+**要点**：
+- 原始备份 `backups/main_window.predocs.bak` 与 `backups/index.html.bak` 是"干净卸载/重装"的唯一真相来源，首次 `install` 自动从当前安装创建。
+- 适配新版 = 重跑 `install`（或菜单 3）；字典补丁为版本无关层，旧版字符串仍命中，仅新版新增文案需补字典。
+- 改了 `patch/zh_dict.json` 后先 `python patch/gen_dict_js.py` 重新编译，再 `python lms_zh.py install`。
 
 ## 卸载
 
 ```powershell
-# 1. 关闭 LM Studio
-taskkill /F /IM "LM Studio.exe"
+# 方式一：一键（推荐）
+python lms_zh.py uninstall      # 还原原始备份 + 删除补丁文件
 
-# 2. 删除 3 个文件
+# 方式二：手动（无原始备份时的兜底）
+taskkill /F /IM "LM Studio.exe"
 del "C:\Program Files\LM Studio\resources\app\.webpack\renderer\zh_dict.js"
 del "C:\Program Files\LM Studio\resources\app\.webpack\renderer\lms-zh-patch.js"
-
-# 3. 还原 main_window.js（前提：部署时未删除 backups\main_window.predocs.bak）
-python patch\apply_docs_zh.py rollback
-
-# 4. 还原 index.html（恢复成官方原版）
-#    备份在 backups\index.html.bak
+copy /Y "backups\main_window.predocs.bak" "C:\Program Files\LM Studio\resources\app\.webpack\renderer\main_window.js"
 copy /Y "backups\index.html.bak" "C:\Program Files\LM Studio\resources\app\.webpack\renderer\index.html"
 ```
 
@@ -160,6 +120,8 @@ LM Studio Chinese/
 ├── CHANGELOG.md                    # 迭代记录
 ├── LICENSE                         # MIT
 ├── .gitignore                      # 忽略 backups/ logs/ *.bak / .workbuddy 等
+├── lms_zh.py                       # ★ 单文件管理工具（安装/卸载/适配新版/状态）
+├── lms_zh.bat                      # 双击启动器（自动 UAC 提权）
 ├── .github/                         # GitHub 标准配置
 │   ├── ISSUE_TEMPLATE/              # Bug 报告 / 功能请求模板
 │   ├── PULL_REQUEST_TEMPLATE.md     # PR 模板
@@ -179,10 +141,10 @@ LM Studio Chinese/
 │   ├── lms-zh-patch.js             # 汉化补丁 v1.9.2（DOM 匹配 + 模板规则）
 │   ├── gen_dict_js.py              # JSON → JS 编译器
 │   ├── gen_i18n_patch.py           # 补全官方 zh_CN 缺失 key
-│   ├── deploy.py                   # 部署/回滚工具（幂等）
-│   ├── _deploy_all.py / _deploy_all.bat   # 一键全量部署
-│   ├── _deploy_only.py             # 仅部署字典+补丁（热部署）
-│   ├── patch_native_menus.py       # 原生菜单字节补丁（幂等）
+│   ├── deploy.py                   # [遗留] 部署/回滚工具（已被 lms_zh.py 取代）
+│   ├── _deploy_all.py / _deploy_all.bat   # [遗留] 一键全量部署（已被 lms_zh.py 取代）
+│   ├── _deploy_only.py             # [遗留] 仅部署字典+补丁（热部署）
+│   ├── patch_native_menus.py       # 原生菜单字节补丁（幂等，被 lms_zh.py 调用）
 │   ├── extract_docs.py             # 从 main_window.js 抽英文 markdown
 │   ├── docs_zh/<name>.md           # 中文译文（156 篇）— 部署唯一依赖
 │   ├── docs_manifest.json          # 文档清单

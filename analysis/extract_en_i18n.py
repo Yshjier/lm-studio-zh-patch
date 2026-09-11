@@ -14,7 +14,8 @@
 """
 import re, json, os, sys
 
-RAW = r'C:/Program Files/LM Studio/resources/app/.webpack/renderer/main_window.js'
+RAW = os.environ.get('LMSZH_BUNDLE') or \
+    r'C:/Program Files/LM Studio/resources/app/.webpack/renderer/main_window.js'
 OUT_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'analysis', 'out')
 os.makedirs(OUT_DIR, exist_ok=True)
 DICT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'patch', 'zh_dict.json')

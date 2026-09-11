@@ -9,7 +9,8 @@ import re, io, sys, os, json
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', write_through=True)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BUNDLE = r'C:\Program Files\LM Studio\resources\app\.webpack\renderer\main_window.js'
+BUNDLE = os.environ.get('LMSZH_BUNDLE') or \
+    r'C:\Program Files\LM Studio\resources\app\.webpack\renderer\main_window.js'
 OUT = os.path.join(ROOT, 'patch', 'docs_src')
 os.makedirs(OUT, exist_ok=True)
 

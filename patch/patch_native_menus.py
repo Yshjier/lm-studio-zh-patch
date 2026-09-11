@@ -20,8 +20,10 @@ _tr 在调用时读取 window.__ZH_DICT__ (由 zh_dict.js 注入)。
 """
 import os, sys, shutil
 
-BUNDLE = r'C:\Program Files\LM Studio\resources\app\.webpack\renderer\main_window.js'
-BACKUP = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'backups', 'main_window.predocs.bak')
+BUNDLE = os.environ.get('LMSZH_BUNDLE') or \
+    r'C:\Program Files\LM Studio\resources\app\.webpack\renderer\main_window.js'
+BACKUP = os.environ.get('LMSZH_BAK') or \
+    os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'backups', 'main_window.predocs.bak')
 
 TR = 'const ZH=window.__ZH_DICT__||{},_tr=s=>(ZH&&ZH[s])||s;'
 
