@@ -22,6 +22,7 @@ LM Studio 中文汉化 — 单文件管理工具 (stdlib only, 无需 venv)
   文件就是"新版本原始", 探测到未打补丁且与旧备份不同 → 刷新备份 → 重新部署。
 """
 import os, sys, io, subprocess, hashlib, json, shutil, time
+import ctypes  # 用于 is_admin() / ShellExecuteW runas 提权, 顶层 import 防止 NameError
 
 # 保证 Windows 控制台中文不乱码
 if sys.stdout.encoding and sys.stdout.encoding.lower() not in ("utf-8", "cp65001"):
@@ -65,19 +66,38 @@ def log(*a):
 # ---------------- 权限 ----------------
 def is_admin():
     try:
-        return ctypes.windll.shell32.IsUserAnAdmin()
+        return bool(ctypes.windll.shell32.IsUserAnAdmin())
     except Exception:
         return False
 
 
-def require_admin():
+def require_admin(action=None):
+    """如非管理员则触发 UAC 重启自己并退出当前进程。
+
+    action: 可选, 当前准备执行的动作名 (install/uninstall/update)。
+            传给新进程后, 新进程直接执行该动作而不再进菜单等输入。
+            这样可避免 "提权后窗口消失" 的 UX 问题。
+    """
     if is_admin():
         return
     log("[提权] 需要管理员权限, 正在请求 UAC ...")
-    import ctypes
-    params = " ".join([__file__] + sys.argv[1:])
+    args = [__file__]
+    if action:
+        args.append(action)
+    elif len(sys.argv) > 1:
+        args.extend(sys.argv[1:])
+    # 用 subprocess.list2cmdline 安全处理带空格/中文的路径
+    params = subprocess.list2cmdline(args)
     ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, params, None, 1)
     sys.exit(0)
+
+
+def _wait_exit():
+    """install/uninstall/update 完成后暂停, 让新窗口可见结果再退出。"""
+    try:
+        input("\n按回车关闭窗口 ... ")
+    except EOFError:
+        pass
 
 
 # ---------------- 路径探测 ----------------
@@ -325,7 +345,7 @@ def step_scan_report():
 
 # ---------------- 命令 ----------------
 def install():
-    require_admin()
+    require_admin("install")
     find_renderer()
     kill_lmstudio()
     if not (os.path.isfile(ZH_JS) and os.path.isfile(PATCH_JS)):
@@ -345,10 +365,11 @@ def install():
     copy_patch()
     inject_index()
     log("=== 部署完成 ✅ 重启 LM Studio 生效 ===")
+    _wait_exit()
 
 
 def uninstall():
-    require_admin()
+    require_admin("uninstall")
     find_renderer()
     kill_lmstudio()
     try:
@@ -362,10 +383,11 @@ def uninstall():
         remove_inject()
     delete_patch_files()
     log("=== 卸载完成 ✅ 已还原为官方英文原版 ===")
+    _wait_exit()
 
 
 def update():
-    require_admin()
+    require_admin("update")
     find_renderer()
     kill_lmstudio()
     step_extract_docs()
@@ -379,6 +401,7 @@ def update():
             pass
     install()
     step_scan_report()
+    _wait_exit()
 
 
 def status():
@@ -449,11 +472,7 @@ def menu():
             break
         else:
             print("无效选择")
-        if c in ("1", "2", "3"):
-            try:
-                input("按回车返回菜单 ... ")
-            except EOFError:
-                break
+        # 1/2/3 已 _wait_exit() 或 sys.exit(0); 4 不需暂停。直接回到菜单。
 
 
 if __name__ == "__main__":
