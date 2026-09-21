@@ -4600,10 +4600,10 @@
  "Yes. Any model in your LM Link network can be used as if it is local. Any tool that already connects to your local LM Studio server will be able to use remote models as well, just by pointing to ": "可以。您的 LM Link 网络中的任何模型都可以像本地模型一样使用。任何已连接到您本地 LM Studio 服务器的工具都可以使用远程模型,只需像往常一样指向 ", 
  "Permission tokens allow you to give specific permissions to API requests sent to your LM Studio server. For example, you can control whether or not API clients can access MCP servers in your local mcp.json file.": "权限令牌允许您为发送到 LM Studio 服务器的 API 请求授予特定权限。例如,您可以控制 API 客户端能否访问本地 mcp.json 文件中的 MCP 服务器。", 
  "API clients can use servers you defined in your mcp.json in LM Studio": "API 客户端可以使用您在 LM Studio 的 mcp.json 中定义的服务器", 
- " header using the ": " 请求头, 采用 ", 
- " scheme. Example: ": " 方案。示例: ", 
- "Edit permissions for ": "编辑权限: ", 
  "(no label)": "(无标签)", 
- " with your the actual API token you created.": " 替换为您实际创建的 API 令牌。", 
- "Learn more in the ": "了解更多, 见 " 
+ "header using the": " 请求头, 采用 ", 
+ "scheme. Example:": " 方案。示例: ", 
+ "Edit permissions for": "编辑权限: ", 
+ "with your the actual API token you created.": " 替换为您实际创建的 API 令牌。", 
+ "Learn more in the": "了解更多, 见 " 
 }
