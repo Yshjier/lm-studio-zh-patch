@@ -76,7 +76,7 @@ LM Studio Chinese/
 
 ### 本项目补丁（汉化字典、脚本、译文）
 
-版权所有 © 2026 Yshjier（伊什基尔）
+版权所有 © 2026 拾帧灼灼
 
 本项目的汉化补丁代码、翻译字典、文档译文均采用 **[CC BY-NC-SA 4.0 国际许可协议](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans)** 授权。
 
