@@ -4605,5 +4605,6 @@
  "scheme. Example:": " 方案。示例: ", 
  "Edit permissions for": "编辑权限: ", 
  "with your the actual API token you created.": " 替换为您实际创建的 API 令牌。", 
- "Learn more in the": "了解更多, 见 " 
+ "Learn more in the": "了解更多, 见 ", 
+ "Please save your secret key in a safe place, it will not be shown again. Any client program using this permission token will be able to access the server with the permissions you assigned.": "请将您的密钥妥善保管，此密钥将不再显示。任何使用此权限令牌的客户端程序，都将以您分配的权限访问服务器。" 
 }
