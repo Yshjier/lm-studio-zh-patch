@@ -1,0 +1,26 @@
+[
+ {
+  "old": "LM Link is a new feature in LM Studio. It allows you to connect together devices on which you have LM Studio (or [llmster](https://lmstudio.ai/blog/0.4.0#deploy-on-servers-deploy-in-ci-deploy-anywhere)) installed. It is end-to-end encrypted, and built on top of custom Tailscale mesh VPNs.\\n\\nOnce devices are together in a Link, you can load models on remote devices and use them as if they were local. Chats remain local and nothing gets uploaded to LM Studio's backend servers apart from your device list - in order to facilitate device discovery and connection.",
+  "new": "LM Link 是 LM Studio 的新功能。它可以把安装了 LM Studio（或 [llmster](https://lmstudio.ai/blog/0.4.0#deploy-on-servers-deploy-in-ci-deploy-anywhere)）的设备互联起来，采用端到端加密，并构建在自建的 Tailscale 网状 VPN 之上。\\n\\n设备组成一个 Link 之后，你就能在远程设备上加载模型，并像使用本地模型一样使用它们。聊天内容保留在本地，除设备列表外不会上传到 LM Studio 的后端服务器——设备列表仅用于设备发现与连接。"
+ },
+ {
+  "old": "**No!** All your devices in the LM Link network communicate with each other using a mesh VPN connection powered by Tailscale. They use end-to-end encrypted connections and communicate without opening any ports to the internet.\\n\\nMoreover, LM Link runs entirely in userspace and does **not change** anything globally on your device, such as networking settings or firewall settings.",
+  "new": "**不会！** LM Link 网络中的所有设备之间采用由 Tailscale 驱动的网状 VPN 连接通信，使用端到端加密，不向互联网开放任何端口。\\n\\n此外，LM Link 完全运行在用户态，**不会改动**你设备上的任何全局设置，比如网络设置或防火墙设置。"
+ },
+ {
+  "old": "Yes. Any model in your LM Link network can be used as if it is local. Any tool that already connects to your local LM Studio server will be able to use remote models as well, just by pointing to `localhost:1234` as usual.\\n\\nThis means that if you use LM Studio together with tools like Codex, Claude Code, OpenCode, your remote models will show up automatically in those tools as well.",
+  "new": "可以。LM Link 网络中的任何模型都能像本地模型一样使用。任何已经连接到你本地 LM Studio 服务器的工具，只要照旧指向 `localhost:1234`，同样可以使用远程模型。\\n\\n也就是说，当你把 LM Studio 与 Codex、Claude Code、OpenCode 这类工具配合使用时，远程模型也会自动出现在这些工具里。"
+ },
+ {
+  "old": "Use LM Link to access your local models wherever you are, over a secure and end-to-end encrypted connection.\\n\\nSeamlessly integrated into the LM Studio experience. Launching in partnership with Tailscale.",
+  "new": "通过 LM Link，你可以在任何地方、以安全且端到端加密的连接访问你的本地模型。\\n\\n它无缝融入 LM Studio 的使用体验，由 LM Studio 与 Tailscale 合作推出。"
+ },
+ {
+  "old": "Access models from both your local and remote devices in the model loader.\\n\\nYour chats remain local, while the heavy processing happens on more powerful devices you own.",
+  "new": "在模型加载器中同时访问本地与远程设备上的模型。\\n\\n聊天内容保留在本地，而繁重的计算在你自己更强的设备上完成。"
+ },
+ {
+  "old": "All data and communication between LM Link devices is private and secure.\\n\\nLM Link is built on top of custom Tailscale mesh VPN, so your devices are never exposed to the public Internet.",
+  "new": "LM Link 设备之间的所有数据与通信都是私密且安全的。\\n\\nLM Link 构建在自建的 Tailscale 网状 VPN 之上，你的设备永远不会暴露在公网上。"
+ }
+]

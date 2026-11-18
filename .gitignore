@@ -1,0 +1,19 @@
+# ===== 构建/部署产物（可重建，不入库）=====
+logs/
+tools/tmp/
+tools/analysis/out/
+patch/docs_src/
+*.bak
+*.bak.info
+
+# ===== Python 缓存 =====
+__pycache__/
+*.pyc
+*.pyo
+
+# ===== 本地元数据（不对外）=====
+.workbuddy/
+.idea/
+
+# ===== 依赖（本项目无第三方依赖）=====
+node_modules/

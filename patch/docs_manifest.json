@@ -1,0 +1,1088 @@
+[
+ {
+  "route": "app",
+  "title": "Welcome to LM Studio Docs!",
+  "prettyName": "Welcome",
+  "zh": "app.md"
+ },
+ {
+  "route": "app/offline",
+  "title": "Offline Operation",
+  "prettyName": "Offline Operation",
+  "zh": "app__offline.md"
+ },
+ {
+  "route": "app/system-requirements",
+  "title": "System Requirements",
+  "prettyName": "System Requirements",
+  "zh": "app__system-requirements.md"
+ },
+ {
+  "route": "app/basics/chat",
+  "title": "Manage chats",
+  "prettyName": "Manage chats",
+  "zh": "app__basics__chat.md"
+ },
+ {
+  "route": "app/basics/download-model",
+  "title": "Download an LLM",
+  "prettyName": "Download an LLM",
+  "zh": "app__basics__download-model.md"
+ },
+ {
+  "route": "app/basics",
+  "title": "Get started with LM Studio",
+  "prettyName": "Overview",
+  "zh": "app__basics.md"
+ },
+ {
+  "route": "app/basics/lmstudio-vs-llmster-vs-lms",
+  "title": "LM Studio, llmster, and lms",
+  "prettyName": "LM Studio, llmster, and lms",
+  "zh": "app__basics__lmstudio-vs-llmster-vs-lms.md"
+ },
+ {
+  "route": "app/basics/rag",
+  "title": "Chat with Documents",
+  "prettyName": "Chat with Documents",
+  "zh": "app__basics__rag.md"
+ },
+ {
+  "route": "app/mcp/deeplink",
+  "title": "Add to LM Studio Button",
+  "prettyName": "Add to LM Studio Button",
+  "zh": "app__mcp__deeplink.md"
+ },
+ {
+  "route": "app/mcp",
+  "title": "Use MCP Servers",
+  "prettyName": "Use MCP Servers",
+  "zh": "app__mcp.md"
+ },
+ {
+  "route": "app/modelyaml",
+  "title": "Introduction to model.yaml",
+  "prettyName": "Introduction to model.yaml",
+  "zh": "app__modelyaml.md"
+ },
+ {
+  "route": "app/modelyaml/publish",
+  "title": "Publish a model.yaml",
+  "prettyName": "Publish a model.yaml",
+  "zh": "app__modelyaml__publish.md"
+ },
+ {
+  "route": "app/presets/import",
+  "title": "Importing and Sharing",
+  "prettyName": "Importing and Sharing",
+  "zh": "app__presets__import.md"
+ },
+ {
+  "route": "app/presets",
+  "title": "Config Presets",
+  "prettyName": "Overview",
+  "zh": "app__presets.md"
+ },
+ {
+  "route": "app/presets/publish",
+  "title": "Publish Your Presets",
+  "prettyName": "Publish a Preset",
+  "zh": "app__presets__publish.md"
+ },
+ {
+  "route": "app/presets/pull",
+  "title": "Pull Updates",
+  "prettyName": "Pull Updates",
+  "zh": "app__presets__pull.md"
+ },
+ {
+  "route": "app/presets/push",
+  "title": "Push New Revisions",
+  "prettyName": "Push New Revisions",
+  "zh": "app__presets__push.md"
+ },
+ {
+  "route": "app/advanced/import-model",
+  "title": "Import Models",
+  "prettyName": "Import Models",
+  "zh": "app__advanced__import-model.md"
+ },
+ {
+  "route": "app/advanced/parallel-requests",
+  "title": "Parallel Requests",
+  "prettyName": "Parallel Requests",
+  "zh": "app__advanced__parallel-requests.md"
+ },
+ {
+  "route": "app/advanced/per-model",
+  "title": "Per-model Defaults",
+  "prettyName": "Per-model Defaults",
+  "zh": "app__advanced__per-model.md"
+ },
+ {
+  "route": "app/advanced/prompt-template",
+  "title": "Prompt Template",
+  "prettyName": "Prompt Template",
+  "zh": "app__advanced__prompt-template.md"
+ },
+ {
+  "route": "app/advanced/speculative-decoding",
+  "title": "Speculative Decoding",
+  "prettyName": "Speculative Decoding",
+  "zh": "app__advanced__speculative-decoding.md"
+ },
+ {
+  "route": "app/user-interface/languages",
+  "title": "LM Studio in your language",
+  "prettyName": "Languages",
+  "zh": "app__user-interface__languages.md"
+ },
+ {
+  "route": "app/user-interface/modes",
+  "title": "User or Developer",
+  "prettyName": "Enable Developer Mode",
+  "zh": "app__user-interface__modes.md"
+ },
+ {
+  "route": "app/user-interface/themes",
+  "title": "Color Themes",
+  "prettyName": "Color Themes",
+  "zh": "app__user-interface__themes.md"
+ },
+ {
+  "route": "bionic",
+  "title": "Welcome to LM Studio Bionic",
+  "prettyName": "Welcome to LM Studio Bionic",
+  "zh": "bionic.md"
+ },
+ {
+  "route": "bionic/projects-and-sessions",
+  "title": "Projects and Sessions",
+  "prettyName": "Projects and Sessions",
+  "zh": "bionic__projects-and-sessions.md"
+ },
+ {
+  "route": "bionic/quick-start",
+  "title": "Create Your First Project",
+  "prettyName": "Create Your First Project",
+  "zh": "bionic__quick-start.md"
+ },
+ {
+  "route": "bionic/accounts-plans-and-billing/credits-and-usage",
+  "title": "Understand Credits and Usage",
+  "prettyName": "Understand Credits and Usage",
+  "zh": "bionic__accounts-plans-and-billing__credits-and-usage.md"
+ },
+ {
+  "route": "bionic/accounts-plans-and-billing",
+  "title": "Set Up Billing and Add Credits",
+  "prettyName": "Set Up Billing and Add Credits",
+  "zh": "bionic__accounts-plans-and-billing.md"
+ },
+ {
+  "route": "bionic/agent/code-project",
+  "title": "Coding",
+  "prettyName": "Coding",
+  "zh": "bionic__agent__code-project.md"
+ },
+ {
+  "route": "bionic/agent/skills",
+  "title": "Skills",
+  "prettyName": "Skills",
+  "zh": "bionic__agent__skills.md"
+ },
+ {
+  "route": "bionic/agent/work-project",
+  "title": "Working with Documents",
+  "prettyName": "Working with Documents",
+  "zh": "bionic__agent__work-project.md"
+ },
+ {
+  "route": "bionic/projects/code-project",
+  "title": "Coding has moved",
+  "prettyName": "Coding has moved",
+  "zh": "bionic__projects__code-project.md"
+ },
+ {
+  "route": "bionic/projects/projects-and-sessions",
+  "title": "Projects and Sessions has moved",
+  "prettyName": "Projects and Sessions has moved",
+  "zh": "bionic__projects__projects-and-sessions.md"
+ },
+ {
+  "route": "bionic/projects/work-project",
+  "title": "Working with Documents has moved",
+  "prettyName": "Working with Documents has moved",
+  "zh": "bionic__projects__work-project.md"
+ },
+ {
+  "route": "bionic/models/download-local-models",
+  "title": "Download Local Models",
+  "prettyName": "Download Local Models",
+  "zh": "bionic__models__download-local-models.md"
+ },
+ {
+  "route": "bionic/models",
+  "title": "Choose a Cloud, Local, or Remote Model",
+  "prettyName": "Choose a Cloud, Local, or Remote Model",
+  "zh": "bionic__models.md"
+ },
+ {
+  "route": "bionic/voice-input",
+  "title": "Voice Input in Bionic",
+  "prettyName": "Voice Input in Bionic",
+  "zh": "bionic__voice-input.md"
+ },
+ {
+  "route": "developer/core/server",
+  "title": "LM Studio as a Local LLM API Server",
+  "prettyName": "Running the Server",
+  "zh": "developer__core__server.md"
+ },
+ {
+  "route": "developer/core/server/serve-on-network",
+  "title": "Serve on Local Network",
+  "prettyName": "Serve on Local Network",
+  "zh": "developer__core__server__serve-on-network.md"
+ },
+ {
+  "route": "developer/core/server/settings",
+  "title": "Server Settings",
+  "prettyName": "Server Settings",
+  "zh": "developer__core__server__settings.md"
+ },
+ {
+  "route": "developer/core/authentication",
+  "title": "Authentication",
+  "prettyName": "Authentication",
+  "zh": "developer__core__authentication.md"
+ },
+ {
+  "route": "developer/core/headless",
+  "title": "Run LM Studio as a service (headless)",
+  "prettyName": "llmster - Headless Mode",
+  "zh": "developer__core__headless.md"
+ },
+ {
+  "route": "developer/core/headless_llmster",
+  "title": "Setup llmster as a Startup Task on Linux",
+  "prettyName": "Linux Startup Task",
+  "zh": "developer__core__headless_llmster.md"
+ },
+ {
+  "route": "developer/core/lmlink",
+  "title": "Using LM Link",
+  "prettyName": "Using with LM Link",
+  "zh": "developer__core__lmlink.md"
+ },
+ {
+  "route": "developer/core/mcp",
+  "title": "Using MCP via API",
+  "prettyName": "Using MCP via API",
+  "zh": "developer__core__mcp.md"
+ },
+ {
+  "route": "developer/core/ttl-and-auto-evict",
+  "title": "Idle TTL and Auto-Evict",
+  "prettyName": "Idle TTL and Auto-Evict",
+  "zh": "developer__core__ttl-and-auto-evict.md"
+ },
+ {
+  "route": "developer/rest/chat",
+  "title": "Chat with a model",
+  "prettyName": "Chat with a model",
+  "zh": "developer__rest__chat.md"
+ },
+ {
+  "route": "developer/rest/download-status",
+  "title": "Get download status",
+  "prettyName": "Get download status",
+  "zh": "developer__rest__download-status.md"
+ },
+ {
+  "route": "developer/rest/download",
+  "title": "Download a model",
+  "prettyName": "Download a model",
+  "zh": "developer__rest__download.md"
+ },
+ {
+  "route": "developer/rest/endpoints",
+  "title": "REST API v0",
+  "prettyName": "REST API v0",
+  "zh": "developer__rest__endpoints.md"
+ },
+ {
+  "route": "developer/rest",
+  "title": "LM Studio API",
+  "prettyName": "Overview",
+  "zh": "developer__rest.md"
+ },
+ {
+  "route": "developer/rest/list",
+  "title": "List your models",
+  "prettyName": "List your models",
+  "zh": "developer__rest__list.md"
+ },
+ {
+  "route": "developer/rest/load",
+  "title": "Load a model",
+  "prettyName": "Load a model",
+  "zh": "developer__rest__load.md"
+ },
+ {
+  "route": "developer/rest/quickstart",
+  "title": "Get up and running with the LM Studio API",
+  "prettyName": "Quickstart",
+  "zh": "developer__rest__quickstart.md"
+ },
+ {
+  "route": "developer/rest/stateful-chats",
+  "title": "Stateful Chats",
+  "prettyName": "Stateful Chats",
+  "zh": "developer__rest__stateful-chats.md"
+ },
+ {
+  "route": "developer/rest/streaming-events",
+  "title": "Streaming events",
+  "prettyName": "Streaming events",
+  "zh": "developer__rest__streaming-events.md"
+ },
+ {
+  "route": "developer/rest/unload",
+  "title": "Unload a model",
+  "prettyName": "Unload a model",
+  "zh": "developer__rest__unload.md"
+ },
+ {
+  "route": "developer/openai-compat/chat-completions",
+  "title": "Chat Completions",
+  "prettyName": "Chat Completions",
+  "zh": "developer__openai-compat__chat-completions.md"
+ },
+ {
+  "route": "developer/openai-compat/completions",
+  "title": "Completions (Legacy)",
+  "prettyName": "Completions (Legacy)",
+  "zh": "developer__openai-compat__completions.md"
+ },
+ {
+  "route": "developer/openai-compat/decisions",
+  "title": "Decisions",
+  "prettyName": "Decisions",
+  "zh": "developer__openai-compat__decisions.md"
+ },
+ {
+  "route": "developer/openai-compat/embeddings",
+  "title": "Embeddings",
+  "prettyName": "Embeddings",
+  "zh": "developer__openai-compat__embeddings.md"
+ },
+ {
+  "route": "developer/openai-compat",
+  "title": "OpenAI Compatibility Endpoints",
+  "prettyName": "Overview",
+  "zh": "developer__openai-compat.md"
+ },
+ {
+  "route": "developer/openai-compat/models",
+  "title": "List Models",
+  "prettyName": "List Models",
+  "zh": "developer__openai-compat__models.md"
+ },
+ {
+  "route": "developer/openai-compat/responses",
+  "title": "Responses",
+  "prettyName": "Responses",
+  "zh": "developer__openai-compat__responses.md"
+ },
+ {
+  "route": "developer/openai-compat/structured-output",
+  "title": "Structured Output",
+  "prettyName": "Structured Output",
+  "zh": "developer__openai-compat__structured-output.md"
+ },
+ {
+  "route": "developer/openai-compat/tools",
+  "title": "Tool Use",
+  "prettyName": "Tools and Function Calling",
+  "zh": "developer__openai-compat__tools.md"
+ },
+ {
+  "route": "developer/anthropic-compat",
+  "title": "Anthropic Compatibility Endpoints",
+  "prettyName": "Overview",
+  "zh": "developer__anthropic-compat.md"
+ },
+ {
+  "route": "developer/anthropic-compat/messages",
+  "title": "Messages",
+  "prettyName": "Messages",
+  "zh": "developer__anthropic-compat__messages.md"
+ },
+ {
+  "route": "developer/jev-compat",
+  "title": "Jev Compatibility Endpoints",
+  "prettyName": "Overview",
+  "zh": "developer__jev-compat.md"
+ },
+ {
+  "route": "developer/jev-compat/systemone",
+  "title": "Decisions (System One)",
+  "prettyName": "Decisions (System One)",
+  "zh": "developer__jev-compat__systemone.md"
+ },
+ {
+  "route": "developer/api-changelog",
+  "title": "API Changelog",
+  "prettyName": "API Changelog",
+  "zh": "developer__api-changelog.md"
+ },
+ {
+  "route": "developer",
+  "title": "LM Studio Developer Docs",
+  "prettyName": "Introduction",
+  "zh": "developer.md"
+ },
+ {
+  "route": "python/getting-started/authentication",
+  "title": "Authentication",
+  "prettyName": "Authentication",
+  "zh": "python__getting-started__authentication.md"
+ },
+ {
+  "route": "python/getting-started/project-setup",
+  "title": "Project Setup",
+  "prettyName": "Project Setup",
+  "zh": "python__getting-started__project-setup.md"
+ },
+ {
+  "route": "python/getting-started/repl",
+  "title": "Using lmstudio-python in REPL",
+  "prettyName": "REPL Usage",
+  "zh": "python__getting-started__repl.md"
+ },
+ {
+  "route": "python/llm-prediction/cancelling-predictions",
+  "title": "Cancelling Predictions",
+  "prettyName": "Cancelling Predictions",
+  "zh": "python__llm-prediction__cancelling-predictions.md"
+ },
+ {
+  "route": "python/llm-prediction/chat-completion",
+  "title": "Chat Completions",
+  "prettyName": "Chat",
+  "zh": "python__llm-prediction__chat-completion.md"
+ },
+ {
+  "route": "python/llm-prediction/completion",
+  "title": "Text Completions",
+  "prettyName": "Text Completions",
+  "zh": "python__llm-prediction__completion.md"
+ },
+ {
+  "route": "python/llm-prediction/image-input",
+  "title": "Image Input",
+  "prettyName": "Image Input",
+  "zh": "python__llm-prediction__image-input.md"
+ },
+ {
+  "route": "python/llm-prediction/parameters",
+  "title": "Configuring the Model",
+  "prettyName": "Configuration Parameters",
+  "zh": "python__llm-prediction__parameters.md"
+ },
+ {
+  "route": "python/llm-prediction/speculative-decoding",
+  "title": "Speculative Decoding",
+  "prettyName": "Speculative Decoding",
+  "zh": "python__llm-prediction__speculative-decoding.md"
+ },
+ {
+  "route": "python/llm-prediction/structured-response",
+  "title": "Structured Response",
+  "prettyName": "Structured Response",
+  "zh": "python__llm-prediction__structured-response.md"
+ },
+ {
+  "route": "python/llm-prediction/working-with-chats",
+  "title": "Working with Chats",
+  "prettyName": "Working with Chats",
+  "zh": "python__llm-prediction__working-with-chats.md"
+ },
+ {
+  "route": "python/agent/act",
+  "title": "The .act() call",
+  "prettyName": "The .act() call",
+  "zh": "python__agent__act.md"
+ },
+ {
+  "route": "python/agent/tools",
+  "title": "Tool Definition",
+  "prettyName": "Tool Definition",
+  "zh": "python__agent__tools.md"
+ },
+ {
+  "route": "python/embedding",
+  "title": "Embedding",
+  "prettyName": "Generating embedding vectors",
+  "zh": "python__embedding.md"
+ },
+ {
+  "route": "python/tokenization",
+  "title": "Tokenization",
+  "prettyName": "Tokenizing text",
+  "zh": "python__tokenization.md"
+ },
+ {
+  "route": "python/manage-models/list-downloaded",
+  "title": "List Downloaded Models",
+  "prettyName": "List Downloaded Models",
+  "zh": "python__manage-models__list-downloaded.md"
+ },
+ {
+  "route": "python/manage-models/list-loaded",
+  "title": "List Loaded Models",
+  "prettyName": "List Loaded Models",
+  "zh": "python__manage-models__list-loaded.md"
+ },
+ {
+  "route": "python/manage-models/loading",
+  "title": "Manage Models in Memory",
+  "prettyName": "Load and Access Models",
+  "zh": "python__manage-models__loading.md"
+ },
+ {
+  "route": "python/model-info/get-context-length",
+  "title": "Get Context Length",
+  "prettyName": "Get Context Length",
+  "zh": "python__model-info__get-context-length.md"
+ },
+ {
+  "route": "python/model-info/get-load-config",
+  "title": "Get Load Config",
+  "prettyName": "Get Load Config",
+  "zh": "python__model-info__get-load-config.md"
+ },
+ {
+  "route": "python/model-info/get-model-info",
+  "title": "Get Model Info",
+  "prettyName": "Get Model Info",
+  "zh": "python__model-info__get-model-info.md"
+ },
+ {
+  "route": "python",
+  "title": "lmstudio-python (Python SDK)",
+  "prettyName": "Introduction",
+  "zh": "python.md"
+ },
+ {
+  "route": "typescript/llm-prediction/cancelling-predictions",
+  "title": "Cancelling Predictions",
+  "prettyName": "Cancelling Predictions",
+  "zh": "typescript__llm-prediction__cancelling-predictions.md"
+ },
+ {
+  "route": "typescript/llm-prediction/chat-completion",
+  "title": "Chat Completions",
+  "prettyName": "Chat",
+  "zh": "typescript__llm-prediction__chat-completion.md"
+ },
+ {
+  "route": "typescript/llm-prediction/completion",
+  "title": "Generate Completions",
+  "prettyName": "Generate Completions",
+  "zh": "typescript__llm-prediction__completion.md"
+ },
+ {
+  "route": "typescript/llm-prediction/image-input",
+  "title": "Image Input",
+  "prettyName": "Image Input",
+  "zh": "typescript__llm-prediction__image-input.md"
+ },
+ {
+  "route": "typescript/llm-prediction/parameters",
+  "title": "Configuring the Model",
+  "prettyName": "Configuration Parameters",
+  "zh": "typescript__llm-prediction__parameters.md"
+ },
+ {
+  "route": "typescript/llm-prediction/speculative-decoding",
+  "title": "Speculative Decoding",
+  "prettyName": "Speculative Decoding",
+  "zh": "typescript__llm-prediction__speculative-decoding.md"
+ },
+ {
+  "route": "typescript/llm-prediction/structured-response",
+  "title": "Structured Response",
+  "prettyName": "Structured Response",
+  "zh": "typescript__llm-prediction__structured-response.md"
+ },
+ {
+  "route": "typescript/llm-prediction/working-with-chats",
+  "title": "Working with Chats",
+  "prettyName": "Working with Chats",
+  "zh": "typescript__llm-prediction__working-with-chats.md"
+ },
+ {
+  "route": "typescript/agent/act",
+  "title": "The .act() call",
+  "prettyName": "The .act() call",
+  "zh": "typescript__agent__act.md"
+ },
+ {
+  "route": "typescript/agent/tools",
+  "title": "Tool Definition",
+  "prettyName": "Tool Definition",
+  "zh": "typescript__agent__tools.md"
+ },
+ {
+  "route": "typescript/plugins/tools-provider/custom-configuration",
+  "title": "Custom Configuration",
+  "prettyName": "Custom Configuration",
+  "zh": "typescript__plugins__tools-provider__custom-configuration.md"
+ },
+ {
+  "route": "typescript/plugins/tools-provider/handling-aborts",
+  "title": "Handling Aborts",
+  "prettyName": "Handling Aborts",
+  "zh": "typescript__plugins__tools-provider__handling-aborts.md"
+ },
+ {
+  "route": "typescript/plugins/tools-provider",
+  "title": "Introduction to Tools Provider",
+  "prettyName": "Introduction to Tools Provider",
+  "zh": "typescript__plugins__tools-provider.md"
+ },
+ {
+  "route": "typescript/plugins/tools-provider/multiple-tools",
+  "title": "Multiple Tools",
+  "prettyName": "Multiple Tools",
+  "zh": "typescript__plugins__tools-provider__multiple-tools.md"
+ },
+ {
+  "route": "typescript/plugins/tools-provider/single-tool",
+  "title": "Single Tool",
+  "prettyName": "Single Tool",
+  "zh": "typescript__plugins__tools-provider__single-tool.md"
+ },
+ {
+  "route": "typescript/plugins/tools-provider/status-reports-and-warnings",
+  "title": "Status Reports & Warnings",
+  "prettyName": "Status Reports & Warnings",
+  "zh": "typescript__plugins__tools-provider__status-reports-and-warnings.md"
+ },
+ {
+  "route": "typescript/plugins/prompt-preprocessor/custom-configuration",
+  "title": "Custom Configuration",
+  "prettyName": "Custom Configuration",
+  "zh": "typescript__plugins__prompt-preprocessor__custom-configuration.md"
+ },
+ {
+  "route": "typescript/plugins/prompt-preprocessor/custom-status-report",
+  "title": "Custom Status Report",
+  "prettyName": "Custom Status Report",
+  "zh": "typescript__plugins__prompt-preprocessor__custom-status-report.md"
+ },
+ {
+  "route": "typescript/plugins/prompt-preprocessor/examples",
+  "title": "Examples",
+  "prettyName": "Examples",
+  "zh": "typescript__plugins__prompt-preprocessor__examples.md"
+ },
+ {
+  "route": "typescript/plugins/prompt-preprocessor/handling-aborts",
+  "title": "Handling Aborts",
+  "prettyName": "Handling Aborts",
+  "zh": "typescript__plugins__prompt-preprocessor__handling-aborts.md"
+ },
+ {
+  "route": "typescript/plugins/prompt-preprocessor",
+  "title": "Introduction",
+  "prettyName": "Introduction",
+  "zh": "typescript__plugins__prompt-preprocessor.md"
+ },
+ {
+  "route": "typescript/plugins/generator",
+  "title": "Introduction",
+  "prettyName": "Introduction",
+  "zh": "typescript__plugins__generator.md"
+ },
+ {
+  "route": "typescript/plugins/generator/text-only-generators",
+  "title": "Text-only Generators",
+  "prettyName": "Text-only Generators",
+  "zh": "typescript__plugins__generator__text-only-generators.md"
+ },
+ {
+  "route": "typescript/plugins/generator/tool-calling-generators",
+  "title": "Tool calling generators",
+  "prettyName": "Tool calling generators",
+  "zh": "typescript__plugins__generator__tool-calling-generators.md"
+ },
+ {
+  "route": "typescript/plugins/custom-configuration/accessing-config",
+  "title": "Accessing Configuration",
+  "prettyName": "Accessing Configuration",
+  "zh": "typescript__plugins__custom-configuration__accessing-config.md"
+ },
+ {
+  "route": "typescript/plugins/custom-configuration/config-ts",
+  "title": "config.ts File",
+  "prettyName": "config.ts File",
+  "zh": "typescript__plugins__custom-configuration__config-ts.md"
+ },
+ {
+  "route": "typescript/plugins/custom-configuration/defining-new-fields",
+  "title": "Defining New Fields",
+  "prettyName": "Defining New Fields",
+  "zh": "typescript__plugins__custom-configuration__defining-new-fields.md"
+ },
+ {
+  "route": "typescript/plugins/custom-configuration",
+  "title": "Introduction",
+  "prettyName": "Introduction",
+  "zh": "typescript__plugins__custom-configuration.md"
+ },
+ {
+  "route": "typescript/plugins/publish-plugins",
+  "title": "Sharing Plugins",
+  "prettyName": "Sharing Plugins",
+  "zh": "typescript__plugins__publish-plugins.md"
+ },
+ {
+  "route": "typescript/plugins/dependencies",
+  "title": "Using npm Dependencies",
+  "prettyName": "Using npm Dependencies",
+  "zh": "typescript__plugins__dependencies.md"
+ },
+ {
+  "route": "typescript/plugins",
+  "title": "Introduction to Plugins",
+  "prettyName": "Introduction to Plugins",
+  "zh": "typescript__plugins.md"
+ },
+ {
+  "route": "typescript/embedding",
+  "title": "Embedding",
+  "prettyName": "Generating embedding vectors",
+  "zh": "typescript__embedding.md"
+ },
+ {
+  "route": "typescript/tokenization",
+  "title": "Tokenization",
+  "prettyName": "Tokenizing text",
+  "zh": "typescript__tokenization.md"
+ },
+ {
+  "route": "typescript/manage-models/list-downloaded",
+  "title": "List Local Models",
+  "prettyName": "List Local Models",
+  "zh": "typescript__manage-models__list-downloaded.md"
+ },
+ {
+  "route": "typescript/manage-models/list-loaded",
+  "title": "List Loaded Models",
+  "prettyName": "List Loaded Models",
+  "zh": "typescript__manage-models__list-loaded.md"
+ },
+ {
+  "route": "typescript/manage-models/loading",
+  "title": "Manage Models in Memory",
+  "prettyName": "Load and Access Models",
+  "zh": "typescript__manage-models__loading.md"
+ },
+ {
+  "route": "typescript/api-reference/llm-load-model-config",
+  "title": "LLMLoadModelConfig",
+  "prettyName": "LLMLoadModelConfig",
+  "zh": "typescript__api-reference__llm-load-model-config.md"
+ },
+ {
+  "route": "typescript/api-reference/llm-prediction-config-input",
+  "title": "LLMPredictionConfigInput",
+  "prettyName": "LLMPredictionConfigInput",
+  "zh": "typescript__api-reference__llm-prediction-config-input.md"
+ },
+ {
+  "route": "typescript/model-info/get-context-length",
+  "title": "Get Context Length",
+  "prettyName": "Get Context Length",
+  "zh": "typescript__model-info__get-context-length.md"
+ },
+ {
+  "route": "typescript/model-info/get-model-info",
+  "title": "Get Model Info",
+  "prettyName": "Get Model Info",
+  "zh": "typescript__model-info__get-model-info.md"
+ },
+ {
+  "route": "typescript/authentication",
+  "title": "Authentication",
+  "prettyName": "Authentication",
+  "zh": "typescript__authentication.md"
+ },
+ {
+  "route": "typescript",
+  "title": "lmstudio-js (TypeScript SDK)",
+  "prettyName": "Introduction",
+  "zh": "typescript.md"
+ },
+ {
+  "route": "typescript/project-setup",
+  "title": "Project Setup",
+  "prettyName": "Project Setup",
+  "zh": "typescript__project-setup.md"
+ },
+ {
+  "route": "cli/local-models/chat",
+  "title": "lms chat",
+  "prettyName": "lms chat",
+  "zh": "cli__local-models__chat.md"
+ },
+ {
+  "route": "cli/local-models/get",
+  "title": "lms get",
+  "prettyName": "lms get",
+  "zh": "cli__local-models__get.md"
+ },
+ {
+  "route": "cli/local-models/import",
+  "title": "lms import",
+  "prettyName": "lms import",
+  "zh": "cli__local-models__import.md"
+ },
+ {
+  "route": "cli/local-models/load",
+  "title": "lms load",
+  "prettyName": "lms load",
+  "zh": "cli__local-models__load.md"
+ },
+ {
+  "route": "cli/local-models/ls",
+  "title": "lms ls",
+  "prettyName": "lms ls",
+  "zh": "cli__local-models__ls.md"
+ },
+ {
+  "route": "cli/local-models/ps",
+  "title": "lms ps",
+  "prettyName": "lms ps",
+  "zh": "cli__local-models__ps.md"
+ },
+ {
+  "route": "cli/serve/log-stream",
+  "title": "lms log stream",
+  "prettyName": "lms log stream",
+  "zh": "cli__serve__log-stream.md"
+ },
+ {
+  "route": "cli/serve/server-start",
+  "title": "lms server start",
+  "prettyName": "lms server start",
+  "zh": "cli__serve__server-start.md"
+ },
+ {
+  "route": "cli/serve/server-status",
+  "title": "lms server status",
+  "prettyName": "lms server status",
+  "zh": "cli__serve__server-status.md"
+ },
+ {
+  "route": "cli/serve/server-stop",
+  "title": "lms server stop",
+  "prettyName": "lms server stop",
+  "zh": "cli__serve__server-stop.md"
+ },
+ {
+  "route": "cli/daemon/daemon-down",
+  "title": "lms daemon down",
+  "prettyName": "lms daemon down",
+  "zh": "cli__daemon__daemon-down.md"
+ },
+ {
+  "route": "cli/daemon/daemon-status",
+  "title": "lms daemon status",
+  "prettyName": "lms daemon status",
+  "zh": "cli__daemon__daemon-status.md"
+ },
+ {
+  "route": "cli/daemon/daemon-up",
+  "title": "lms daemon up",
+  "prettyName": "lms daemon up",
+  "zh": "cli__daemon__daemon-up.md"
+ },
+ {
+  "route": "cli/daemon/daemon-update",
+  "title": "lms daemon update",
+  "prettyName": "lms daemon update",
+  "zh": "cli__daemon__daemon-update.md"
+ },
+ {
+  "route": "cli/link/link-disable",
+  "title": "lms link disable",
+  "prettyName": "lms link disable",
+  "zh": "cli__link__link-disable.md"
+ },
+ {
+  "route": "cli/link/link-enable",
+  "title": "lms link enable",
+  "prettyName": "lms link enable",
+  "zh": "cli__link__link-enable.md"
+ },
+ {
+  "route": "cli/link/link-set-device-name",
+  "title": "lms link set-device-name",
+  "prettyName": "lms link set-device-name",
+  "zh": "cli__link__link-set-device-name.md"
+ },
+ {
+  "route": "cli/link/link-set-preferred-device",
+  "title": "lms link set-preferred-device",
+  "prettyName": "lms link set-preferred-device",
+  "zh": "cli__link__link-set-preferred-device.md"
+ },
+ {
+  "route": "cli/link/link-status",
+  "title": "lms link status",
+  "prettyName": "lms link status",
+  "zh": "cli__link__link-status.md"
+ },
+ {
+  "route": "cli/runtime/runtime",
+  "title": "lms runtime",
+  "prettyName": "lms runtime",
+  "zh": "cli__runtime__runtime.md"
+ },
+ {
+  "route": "cli/develop-and-publish/clone",
+  "title": "lms clone",
+  "prettyName": "lms clone",
+  "zh": "cli__develop-and-publish__clone.md"
+ },
+ {
+  "route": "cli/develop-and-publish/dev",
+  "title": "lms dev (Beta)",
+  "prettyName": "lms dev",
+  "zh": "cli__develop-and-publish__dev.md"
+ },
+ {
+  "route": "cli/develop-and-publish/login",
+  "title": "lms login",
+  "prettyName": "lms login",
+  "zh": "cli__develop-and-publish__login.md"
+ },
+ {
+  "route": "cli/develop-and-publish/push",
+  "title": "lms push (Beta)",
+  "prettyName": "lms push",
+  "zh": "cli__develop-and-publish__push.md"
+ },
+ {
+  "route": "cli/contributing",
+  "title": "Contributing",
+  "prettyName": "Contributing",
+  "zh": "cli__contributing.md"
+ },
+ {
+  "route": "cli",
+  "title": "lms — LM Studio's CLI",
+  "prettyName": "Introduction",
+  "zh": "cli.md"
+ },
+ {
+  "route": "integrations/mcp-remote",
+  "title": "MCP Integrations",
+  "prettyName": "Introduction",
+  "zh": "integrations__mcp-remote.md"
+ },
+ {
+  "route": "integrations/mcp-remote/popular",
+  "title": "Popular MCP Integrations",
+  "prettyName": "Popular Integrations",
+  "zh": "integrations__mcp-remote__popular.md"
+ },
+ {
+  "route": "integrations/claude-code",
+  "title": "Claude Code",
+  "prettyName": "Claude Code",
+  "zh": "integrations__claude-code.md"
+ },
+ {
+  "route": "integrations/codex",
+  "title": "Codex",
+  "prettyName": "Codex",
+  "zh": "integrations__codex.md"
+ },
+ {
+  "route": "integrations/hermes",
+  "title": "Hermes Agent",
+  "prettyName": "Hermes Agent",
+  "zh": "integrations__hermes.md"
+ },
+ {
+  "route": "integrations",
+  "title": "Integrations",
+  "prettyName": "Introduction",
+  "zh": "integrations.md"
+ },
+ {
+  "route": "integrations/lmlink",
+  "title": "Using LM Link with Integrations",
+  "prettyName": "Working with LM Link",
+  "zh": "integrations__lmlink.md"
+ },
+ {
+  "route": "integrations/openclaw",
+  "title": "OpenClaw",
+  "prettyName": "OpenClaw",
+  "zh": "integrations__openclaw.md"
+ },
+ {
+  "route": "lmlink/basics/add-device",
+  "title": "Add a Device",
+  "prettyName": "Add a device",
+  "zh": "lmlink__basics__add-device.md"
+ },
+ {
+  "route": "lmlink/basics/faq",
+  "title": "Frequently Asked Questions",
+  "prettyName": "FAQ",
+  "zh": "lmlink__basics__faq.md"
+ },
+ {
+  "route": "lmlink/basics",
+  "title": "Setup a link",
+  "prettyName": "Setup a link",
+  "zh": "lmlink__basics.md"
+ },
+ {
+  "route": "lmlink/basics/preferred-device",
+  "title": "Set a preferred device",
+  "prettyName": "Set a preferred device",
+  "zh": "lmlink__basics__preferred-device.md"
+ },
+ {
+  "route": "lmlink",
+  "title": "LM Link",
+  "prettyName": "Introduction",
+  "zh": "lmlink.md"
+ },
+ {
+  "route": "lmlink/lmlink-in-locally",
+  "title": "LM Link in Locally",
+  "prettyName": "LM Link in Locally",
+  "zh": "lmlink__lmlink-in-locally.md"
+ },
+ {
+  "route": "CONTRIBUTING",
+  "title": "CONTRIBUTING",
+  "prettyName": "CONTRIBUTING",
+  "zh": null
+ },
+ {
+  "route": "README",
+  "title": "README",
+  "prettyName": "README",
+  "zh": "README.md"
+ }
+]
