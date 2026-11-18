@@ -105,7 +105,8 @@ renderer 两个 spec→菜单转换器（switch 形态 / `useContextMenu` 扁平
 过滤、排序后产出 `patch/zh_dict.json`，不再做多表合并覆盖。
 
 - 丢弃：`en == zh` 占位、空值、非字符串、URL/代码形状键（小写标识符、扩展名、
-  颜色码、全大写枚举、驼峰组件名）。URL 判定只匹配 `http(s)://` / `www.`，
+  颜色码、全大写枚举、驼峰组件名）。URL 判定只剔除整串以 `http(s)://` / `www.`
+  开头的键；句中夹带链接的普通菜单文案不剔除。
   含普通英文单词（如 prose 中的 `function`）不会被误判为代码。
 - 产物 `patch/zh_dict.json` → `patch/gen_dict_js.py` 生成 `zh_dict.js`。
 

@@ -1949,6 +1949,7 @@
  "Go to end": "跳转到结尾",
  "Go to file": "跳转到文件",
  "Go to first": "跳转到第一个",
+ "Go to https://lmstudio.ai... (↗)": "前往 https://lmstudio.ai... (↗)",
  "Go to implementation": "跳转到实现",
  "Go to last": "跳转到最后一个",
  "Go to line": "跳转到行",
@@ -2354,6 +2355,7 @@
  "LM Studio is available in English, Chinese, Spanish, French, German, Korean, Russian, and 26+ more languages.": "LM Studio 支持英语、中文、西班牙语、法语、德语、韩语、俄语等 26 种以上语言。",
  "LM Studio is checking whether macOS already trusts it for input mode.": "LM Studio 正在检查 macOS 是否已信任其输入模式。",
  "LM Studio logo": "LM Studio 徽标",
+ "LM Studio's Discord Server... (↗)": "LM Studio Discord 服务器... (↗)",
  "LM Studio's REST API for local inference and model management": "用于本地推理与模型管理的 LM Studio REST API",
  "LM Studio, llmster, and lms": "LM Studio、llmster 与 lms",
  "LMS Path:": "LM Studio 路径：",
@@ -4712,6 +4714,7 @@
  "Terminal": "终端",
  "Terminal Point": "终点",
  "Terminal point": "终点",
+ "Terms of Service (↗)": "服务条款 (↗)",
  "Terms of Use": "使用条款",
  "Test Generation": "测试生成",
  "Test Snack": "测试轻提示",
@@ -5559,5 +5562,6 @@
  "繁體中文 (Beta)": "繁體中文",
  "한국어 (Beta)": "한국어",
  "🎉 You have successfully created your plugin. Next, open the newly created project in your preferred code editor and start developing.": "🎉 插件创建成功！接下来，用你喜欢的代码编辑器打开新建的项目，开始开发吧。",
- "📚 Developer Docs": "📚 开发者文档"
+ "📚 Developer Docs": "📚 开发者文档",
+ "🪲 Report Bug ↗": "🪲 报告问题 ↗"
 }

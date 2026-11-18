@@ -25,7 +25,7 @@ NOT_TEXT_RE = re.compile(
     r"^(?:var\(--|rgb\(|#[0-9a-fA-F]{3,8}$|M\d|\.js\b|"
     r"\.md$|\.json$|\.tsx?$|\.ya?ml$|\.svg$|\.png$|"
     r"^[a-z_$][\w$.-]*$|^[A-Z][a-z]+[A-Z][A-Za-z0-9]*$)")
-URL_RE = re.compile(r"https?://|www\.")
+URL_RE = re.compile(r"^(?:https?://|www\.)")
 
 
 def usable(k, z):
