@@ -47,7 +47,8 @@ if /i not "%CMD%"=="status" (
   echo [OK] Quit LM Studio from the tray, then reopen it to apply the patch.
 )
 :end
-echo.
-echo Usage: install / uninstall / update / status
-echo.
-if not defined LMS_NO_PAUSE pause
+if /i "%CMD%"=="status" (
+  echo.
+  echo Usage: install / uninstall / update / status
+  pause
+)

@@ -79,6 +79,7 @@ def require_admin(action=None):
 
 
 def _wait_exit():
+    # 仅在出错或交互式菜单退出前停留；成功的命令行调用直接关闭窗口
     try:
         input("\n按回车关闭窗口 ... ")
     except EOFError:
@@ -391,7 +392,6 @@ def _install_steps():
 
 def install():
     _install_steps()
-    _wait_exit()
 
 
 def uninstall():
@@ -409,7 +409,6 @@ def uninstall():
         remove_inject()
     delete_patch_files()
     log("=== 卸载完成 ✅ 已还原为官方英文原版 ===")
-    _wait_exit()
 
 
 def update():
@@ -425,7 +424,6 @@ def update():
     step_extract_docs()
     _install_steps()
     step_scan_report()
-    _wait_exit()
 
 
 def status():
@@ -494,5 +492,21 @@ def menu():
             print("无效选择")
 
 
+def _main():
+    rc = 0
+    try:
+        menu()
+    except SystemExit as e:
+        if str(e):
+            print(str(e), file=sys.stderr)
+        rc = 1
+    except Exception as e:
+        log("[ERROR] %s" % e)
+        rc = 1
+    if rc != 0:
+        _wait_exit()
+    return rc
+
+
 if __name__ == "__main__":
-    menu()
+    sys.exit(_main())
