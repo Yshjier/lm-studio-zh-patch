@@ -326,6 +326,8 @@ def step_static_bundle():
     _run(os.path.join(ROOT, "patch", "escaped_patch.py"))
     log("[*] 静态旁路: i18n 缺键补注 ...")
     _run(os.path.join(ROOT, "patch", "i18n_patch.py"))
+    log("[*] 静态旁路: 上下文菜单标签 ...")
+    _run(os.path.join(ROOT, "patch", "patch_context_menus.py"))
     log("[*] 静态旁路: 中文开发者文档注入 ...")
     rc = _run(os.path.join(ROOT, "patch", "apply_docs_zh.py"), "apply")
     if rc != 0:

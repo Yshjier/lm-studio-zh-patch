@@ -14,7 +14,7 @@
  * - 诊断：__zhPatchCount / __zhNowrapCount / __zhDebug() / __zhNoWrapMisses
  *
  * 边界（用户决策）：
- * - 原生 renderer 右键菜单（Electron 侧 n()/o() 通道）不在本层处理，保持原样
+ * - renderer 上下文菜单标签由 patch_context_menus.py 静态旁路处理，本观察者层不重复介入
  * - 用户数据默认名（如 Empty Folder）不翻译
  * - Monaco 命令码表、第三方库内部报错、协议路径/语言码/外部产品名保持英文
  */

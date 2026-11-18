@@ -11,7 +11,7 @@ i18n 缺键、长文 FAQ、主进程托盘菜单这四类 observer 够不到的�
 > 分发前请遵守 LM Studio 用户协议。
 
 **边界（既定决策）**
-- 原生 renderer 右键菜单（Electron `n()/o()` 通道）保持原样，本补丁不处理。
+- renderer 上下文菜单（右键 / 下拉 / 排序）标签由静态旁路翻译；菜单项快捷键、图标与结构不改。
 - 用户数据默认名（如 `Empty Folder`）不翻译，避免与磁盘文件名/重命名状态不一致。
 - Monaco 命令码表、第三方库内部报错、协议路径/语言码、外部产品名保持英文。
 
@@ -58,6 +58,7 @@ python patch/gen_dict_js.py    # zh_dict.json -> zh_dict.js（window.__ZH_DICT__
 | `patch/docs_src/` | 181 篇英文原文抽取基线（生成物，不入库，`extract_docs.py` 重抽） |
 | `patch/i18n_patch.py` | 简中语言包缺键补注（动态推导模块 ID，只增键不覆盖） |
 | `patch/escaped_patch.py` | LM Link 长文 FAQ / 引导正文的转义字面量整段替换 |
+| `patch/patch_context_menus.py` | renderer 上下文菜单标签旁路：两个 spec→菜单转换器出口接入字典 |
 | `patch/patch_tray_menu.py` | 主进程托盘菜单 `Menu.buildFromTemplate` hook |
 | `dict_src/` | 字典与旁路词条源（见下节） |
 | `tools/_scan_common.py` | 扫描/抽取公共件：渲染层定位、覆盖集加载、文档解析与转义辅助 |

@@ -88,7 +88,13 @@ content:"…"}]`。
 `dict_src/escaped.json` 中 6 条含 `\n\n` 的 LM Link 长文，字面量整段替换。
 相对时间等带变量串由观察者模板规则在渲染层覆盖，不在此静态替换。
 
-### 4.4 托盘菜单（`patch/patch_tray_menu.py`）
+### 4.4 上下文菜单（`patch/patch_context_menus.py`）
+
+renderer 两个 spec→菜单转换器（switch 形态 / `useContextMenu` 扁平形态）生成的
+右键、下拉、排序菜单不进入 DOM，观察者抓不到；在转换器出口把 `label` 经 `_tr`
+查 `__ZH_DICT__`，未命中原样返回。按代码形态匹配，版本漂移未命中则告警跳过；幂等。
+
+### 4.5 托盘菜单（`patch/patch_tray_menu.py`）
 
 主进程 `Menu.buildFromTemplate` 包一层 `walk`，固定标签查表 + 端口/数量/状态正则；
 模型名等未知 label 原样返回。幂等 marker `// === LMS-ZH tray menu patch ===`。
@@ -121,7 +127,7 @@ content:"…"}]`。
 - bundle / 主进程写入前 `node --check` 真实语法校验，失败不落地。
 - 卸载从 `.bak` 按字节还原；回归脚本做 SHA256 比对。
 - observer 不改 inline 子元素结构，避免破坏 React reconciler 的 DOM 引用。
-- 原生 renderer 右键菜单（`n()/o()` 通道）不注入、不翻译。
+- renderer 上下文菜单标签由静态旁路处理；观察者层不重复介入，菜单项快捷键/图标结构不改。
 
 ## 7. 补一条翻译的标准流程
 
