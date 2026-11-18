@@ -29,26 +29,16 @@ if not defined PYTHON_EXE (
   exit /b 1
 )
 
-echo [OK] Python: %PYTHON_EXE%
-echo [OK] Patch dir: %PATCH_DIR%
-echo.
+rem status 在本窗口内运行以便查看输出；其余命令拉起独立 Python 窗口后关闭本 cmd
+if /i "%CMD%"=="status" goto :inline
+
+echo [%date% %time%] launching install.py %* >> "%PATCH_DIR%logs\bat.log"
+start "LM Studio Patch" "%PYTHON_EXE%" "%PATCH_DIR%install.py" %*
+exit /b 0
+
+:inline
 "%PYTHON_EXE%" "%PATCH_DIR%install.py" %*
 set "RC=%errorlevel%"
 echo. >> "%PATCH_DIR%logs\bat.log"
 echo [%date% %time%] install.py exit code %RC% >> "%PATCH_DIR%logs\bat.log"
-if "%RC%"=="0" goto :ok
-echo.
-echo [FAILED] Setup finished with code %RC%. Quit LM Studio from the tray, then run again.
-echo See logs\bat.log and logs\install.log for details.
-goto :end
-:ok
-if /i not "%CMD%"=="status" (
-  echo.
-  echo [OK] Quit LM Studio from the tray, then reopen it to apply the patch.
-)
-:end
-if /i "%CMD%"=="status" (
-  echo.
-  echo Usage: install / uninstall / update / status
-  pause
-)
+pause
