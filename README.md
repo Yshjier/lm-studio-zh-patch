@@ -69,7 +69,6 @@ python patch/gen_dict_js.py    # zh_dict.json -> zh_dict.js（window.__ZH_DICT__
 | `tools/scan_i18n.py` | 提取英文 locale 块并列出未覆盖 i18n 键 |
 | `tools/validate_docs.py` | 译文 markdown 结构对齐校验（围栏/行内代码/标题/链接/图片/表格） |
 | `tools/check_code_blocks.py` | 代码块按围栏类型逐字节强校验 |
-| `tools/regress.py` | 临时布局端到端回归：安装 → 校验 → 卸载 → SHA 还原比对 |
 
 ### `dict_src/` 词条源
 
@@ -129,9 +128,6 @@ python patch/gen_dict_js.py    # zh_dict.json -> zh_dict.js（window.__ZH_DICT__
 - **卸载**：从三份 `.bak` 还原，删除补丁脚本与 index 注入行；还原后做 SHA256 比对。
 - **适配新版**：LM Studio 升级覆盖 bundle 后，`update` 探测到未打补丁且与旧备份哈希
   不同 → 刷新备份 → 重新部署。
-
-临时回归：`python tools/regress.py` 在 `tools/tmp/reg` 模拟 renderer/main 布局，
-跑完安装→校验→卸载→SHA 还原全闭环，不触碰真实安装目录。
 
 ---
 

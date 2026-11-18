@@ -135,7 +135,7 @@ content:"…"}]`。
    - 含 `\n` 长文 → `dict_src/escaped.json` 加 `{old,new}`。
    - 文档译文 → `patch/docs_zh/<route 转义>.md`，并在 `docs_manifest.json` 登记。
 3. `python tools/build_dict.py` → `python patch/gen_dict_js.py` 重建字典产物。
-4. `python tools/regress.py` 临时布局闭环回归；`python tools/audit_dict.py` 查异常。
+4. `python tools/audit_dict.py` 查异常。
 5. 全部通过后再对真实目录 `python install.py install`；操作前退出 LM Studio。
 
 ## 8. 已知限制与刻意保留
