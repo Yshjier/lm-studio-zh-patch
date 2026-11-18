@@ -79,7 +79,7 @@
     [/^1 day ago$/, '1 天前'],
     [/^(\d+) days ago$/, '$1 天前'],
     // 上下文用量浮层（模板带变量）
-    [/^(\d+)% used \((\d+)% left\)$/, '$1% 已用（剩余 $2%）'],
+    [/^(\d+(?:\.\d+)?)% used \((\d+(?:\.\d+)?)% left\)$/, '$1% 已用（剩余 $2%）'],
     [/^Conversation token usage is unavailable\. Loaded context: (.+) tokens\.$/, '对话令牌用量不可用。已加载上下文：$1 个令牌。'],
     [/^Delete (.+)$/, '删除 $1'] // 通用 Delete 前缀放最后（具体规则优先）
   ];
